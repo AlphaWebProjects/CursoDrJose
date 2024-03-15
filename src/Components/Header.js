@@ -6,6 +6,27 @@ function Header() {
 
   const handleHeaderClick = (index) => {
     setActiveHeader(index);
+    console.log(index)
+    if (index === 1) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (index === 2) {
+      const totalHeight = document.body.scrollHeight;
+      const scrollToHeight = (totalHeight * 0.24); // Rolar para baixo 30% da altura total da página
+      window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
+    }
+    if (index === 3) {
+      const totalHeight = document.body.scrollHeight;
+      const scrollToHeight = (totalHeight * 0.49); // Rolar para baixo 30% da altura total da página
+      window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
+    }
+    if (index === 4) {
+      const totalHeight = document.body.scrollHeight;
+      const scrollToHeight = (totalHeight * 0.74); // Rolar para baixo 30% da altura total da página
+      window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
+    }
+    
+
   };
 
   return (
@@ -24,8 +45,12 @@ function Header() {
 }
 
 const HeaderContainer = styled.div`
+z-index: 2;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: rgb(255,255,255,0.9);
+  position:fixed;
+  top:0;
+  left:0;
   color:#ff0002;
   height: 100px;
   padding: 10px;
@@ -33,6 +58,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  backdrop-filter: blur(5px);
 `;
 
 const MiddleHeader = styled.div`
