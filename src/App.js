@@ -2,17 +2,18 @@ import './App.css';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home.js';
+import SobreNos from './Pages/SobreNos.js';
 import Header from './Components/Header';
+import SobreCurso from './Pages/SobreCurso';
+import Pagamento from './Pages/Pagamento';
 function App() {
   return (
     <AppContainer>
-      <Router>
-      <Routes> 
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={null} />
-        <Route path="/login" element={null} />
-      </Routes>
-      </Router>
+      <Header />
+      <Home/>
+      <SobreNos/>
+      <SobreCurso/>
+      <Pagamento/>
     </AppContainer>
   );
 }
@@ -24,4 +25,5 @@ const AppContainer = styled.div`
   height: 100vh;
   margin-top: -21px;
   box-sizing: border-box;
+  
 `;

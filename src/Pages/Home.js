@@ -1,11 +1,9 @@
 import styled from 'styled-components';
-import Header from '../Components/Header';
-
+import medic from '../img/medic.jpg';
 function Home() {
     return (
       
       <Container>
-          <Header />
             <MainContentHome>
               <CenterContent>
                 <Left>
@@ -33,17 +31,17 @@ function Home() {
   
   const Container = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 90%;
+    margin-top:120px;
+    background-image: url(${medic});
+    background-size: cover;
+    background-position: center;
 `;
  const MainContentHome= styled.div`
     width: 100%;
-    height: 90%;
+    height: 100%;
     display: flex;
     padding: 5%;
-    background-color:red;
-    background: #ADA996;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
  `
  const Left = styled.div`
@@ -83,5 +81,6 @@ function Home() {
     display: flex;
     border-radius: 20px;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    backdrop-filter: blur(12px);
   `
  
