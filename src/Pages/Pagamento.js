@@ -5,7 +5,7 @@ function Pagamento() {
         <Container>
         <MainContentPayment>
           <CenterContent>
-              aaaaa
+        
           </CenterContent>
         </MainContentPayment>
     </Container>

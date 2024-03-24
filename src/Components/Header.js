@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
+import logo from '../img/logoSmall.png';
+import { Link } from 'react-router-dom';
 function Header() {
   const [activeHeader, setActiveHeader] = useState(1);
 
@@ -17,7 +18,7 @@ function Header() {
     }
     if (index === 3) {
       const totalHeight = document.body.scrollHeight;
-      const scrollToHeight = (totalHeight * 0.49); // Rolar para baixo 30% da altura total da página
+      const scrollToHeight = (totalHeight * 0.50); // Rolar para baixo 30% da altura total da página
       window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
     }
     if (index === 4) {
@@ -31,7 +32,7 @@ function Header() {
 
   return (
     <HeaderContainer>
-        <h1>Dr. José Neto</h1>
+        <h1><img src={logo} width="230" height="60" alt="Logo"/> </h1>
       <MiddleHeader>
         <StyledH2 active={activeHeader === 1} onClick={() => handleHeaderClick(1)}>Home</StyledH2>
         <StyledH2 active={activeHeader === 2} onClick={() => handleHeaderClick(2)}>Sobre nós</StyledH2>
@@ -39,7 +40,7 @@ function Header() {
         <StyledH2 active={activeHeader === 4} onClick={() => handleHeaderClick(4)}>Pagamento</StyledH2>
         <Indicator activeHeader={activeHeader} />
       </MiddleHeader>
-        <StyledLoginButton>Login</StyledLoginButton>
+        <StyledLoginButton as={Link} to="/auth">Login</StyledLoginButton>
     </HeaderContainer>
   );
 }
@@ -51,7 +52,7 @@ z-index: 2;
   position:fixed;
   top:0;
   left:0;
-  color:#ff0002;
+  color:#158A7A;
   height: 100px;
   padding: 10px;
   display: flex;
@@ -76,9 +77,9 @@ const StyledH2 = styled.h2`
   max-width:20%;
   text-align: center;
   transition: color 0.3s ease;
-  color: ${({ active }) => (active ? '#ff0002' : '#808080')};
+  color: ${({ active }) => (active ? '#158A7A' : '#808080')};
   &:hover {
-    color:#ff0002;
+    color:#158A7A;
   }
 `;
 
@@ -88,7 +89,7 @@ const Indicator = styled.div`
   left: ${({ activeHeader }) => `${(activeHeader -0.6) * 25}%`};
   width: 5%;
   height: 2px;
-  background-color: #ff0002;
+  background-color: #158A7A;
   transition: left 0.3s ease-in-out;
 `;
 const StyledLoginButton = styled.h2`
@@ -98,7 +99,8 @@ const StyledLoginButton = styled.h2`
   text-align: center;
   color: #FFFFFF;
   font-size: 16px;
-  background-color: #ff0002;
+  background-color: #158A7A;
+  text-decoration: none;
   border-radius: 20px;
   display: flex;
   align-items: center;

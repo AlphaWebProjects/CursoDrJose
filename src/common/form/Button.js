@@ -14,12 +14,12 @@ const StyledMuiButton = styled(Button)`
   font-size: ${(props) => props.fontsize || '18px !important'};
   width: ${(props) => props.width || 'auto'};
   height: ${(props) => props.height || 'auto'};
-  background-color: ${(props) => props.background || '#DE3F3F !important'};
-  //background-color: ${(props) => props.background || '#ff0002 !important'};
+  background-color: ${(props) => props.background || '#158A7A !important'};
+  //background-color: ${(props) => props.background || '#158A7A !important'};
   color: ${(props) => props.fontColor || '#FFFFFF !important'};
   margin-top: ${(props) => props.margintop || '0'};
 
   &:hover {
-    background-color: ${(props) => props.backgroundhover || '#DA5555 !important'};
+    background-color: ${(props) => props.backgroundhover || '#158A7A !important'};
   }
 `;
