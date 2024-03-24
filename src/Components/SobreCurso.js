@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import doctor2 from '../img/doctor2.jpg';
+import doctor2 from '../img/FotosAlunos1.jpeg';
 function SobreCurso() {
 
     const handleHeaderClick = (index) => {
@@ -34,7 +34,7 @@ function SobreCurso() {
     height: 90%;
     background-image: url(${doctor2});
     background-size: cover;
-    background-position: center;
+    background-position: center top 60%
 `;
 
  const MainContentCurso = styled.div`
@@ -52,9 +52,8 @@ function SobreCurso() {
         justify-content: space-around;
         align-items: center;
         border-radius: 20px;
-        backdrop-filter: blur(15px);
+        background-color: rgba(255, 255, 255, 0.9);
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background-color:rgba(0,0,0,0.15);
         padding:5%;
         h1{
           color:#158A7A;

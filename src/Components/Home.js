@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import fotoAlunos from '../img/fotoAlunos.jpeg';
 import React, { Component } from 'react';
-
+import video from "../img/videoViaAerea.mp4";
 
 function Home() {
   const handleHeaderClick = () => {
@@ -25,27 +25,15 @@ function Home() {
             <Button onClick={() => handleHeaderClick()}>Saiba Mais</Button>
           </Left>
           <Right>
-            <VideoPlayer />
+          <video width="292" height="515" controls muted style={{ boxShadow: '0 0 50px rgba(21, 138, 122, 0.5)', borderRadius:'20px' }}>
+            <source src={video} type="video/mp4" />
+            Seu navegador não suporta o elemento de vídeo.
+          </video>
           </Right>
         </CenterContent>
       </MainContentHome>
     </Container>
   );
-}
-
-class VideoPlayer extends Component {
-  componentDidMount() {
-    const element = document.querySelector('.ytp-gradient-top');
-    if (element) {
-      element.style.display = 'none';
-    }
-  }
-
-  render() {
-    return (
-      <iframe width="292" height="515" src="https://www.youtube.com/embed/8YJWvcsc2og?autoplay=1&modestbranding=1&showinfo=0" frameBorder="0" allowFullScreen></iframe>
-    );
-  }
 }
 
 export default Home;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import logo from '../img/logoSmall.png';
+import { Link } from 'react-router-dom';
 function Header() {
   const [activeHeader, setActiveHeader] = useState(1);
 
@@ -31,7 +32,7 @@ function Header() {
 
   return (
     <HeaderContainer>
-        <h1><img src={logo} width="210" height="60" alt="Logo"/> </h1>
+        <h1><img src={logo} width="230" height="60" alt="Logo"/> </h1>
       <MiddleHeader>
         <StyledH2 active={activeHeader === 1} onClick={() => handleHeaderClick(1)}>Home</StyledH2>
         <StyledH2 active={activeHeader === 2} onClick={() => handleHeaderClick(2)}>Sobre nós</StyledH2>
@@ -39,7 +40,7 @@ function Header() {
         <StyledH2 active={activeHeader === 4} onClick={() => handleHeaderClick(4)}>Pagamento</StyledH2>
         <Indicator activeHeader={activeHeader} />
       </MiddleHeader>
-        <StyledLoginButton>Login</StyledLoginButton>
+        <StyledLoginButton as={Link} to="/auth">Login</StyledLoginButton>
     </HeaderContainer>
   );
 }
@@ -99,6 +100,7 @@ const StyledLoginButton = styled.h2`
   color: #FFFFFF;
   font-size: 16px;
   background-color: #158A7A;
+  text-decoration: none;
   border-radius: 20px;
   display: flex;
   align-items: center;

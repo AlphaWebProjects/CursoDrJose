@@ -2,7 +2,7 @@ import styled from "styled-components"
 // import logo from "../../img/background-auth.jpg"
 import { useCustomForm } from "../../hooks/useCustomForms"
 import { toast } from "react-toastify"
-import api from "../../services/API"
+import api from "../../Services/API.js"
 import { useContext, useState } from "react"
 import useNavigateAndMoveUp from "../../hooks/useNavigateAndMoveUp"
 import UserContext from "../../context/UserContext"
@@ -83,7 +83,7 @@ export default function Login ({changeAuth}) {
                     />
                 </InputWrapper>
                 <ButtonWrapper width={"100%"}>
-                    <Button onClick={() => SubmitForms()} width={"80%"} height={"55px"}>{"Entrar"}</Button>
+                    <Button onClick={() => SubmitForms()} width={"80%"} height={"55px"} backgroundColor={"#158A7A"}>{"Entrar"}</Button>
                     <ChangeAuthButton onClick={changeAuth}>Criar um Cadastro</ChangeAuthButton>
                 </ButtonWrapper>
 
