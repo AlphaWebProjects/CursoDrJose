@@ -1,19 +1,10 @@
-import './App.css';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home.js';
-import SobreNos from './Pages/SobreNos.js';
+import './App.css';
 import Header from './Components/Header';
-import SobreCurso from './Pages/SobreCurso';
-import Pagamento from './Pages/Pagamento';
 function App() {
   return (
     <AppContainer>
       <Header />
-      <Home/>
-      <SobreNos/>
-      <SobreCurso/>
-      <Pagamento/>
     </AppContainer>
   );
 }
