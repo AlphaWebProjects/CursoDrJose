@@ -1,20 +1,37 @@
-import styled from 'styled-components';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
-import Header from './Components/Header';
+import Auth from './Pages/Auth';
+import LandingPage from './Pages/LandingPage';
+import NotFound from './Pages/NotFound';
+import { UserProvider } from './context/UserContext';
+
 function App() {
   return (
-    <AppContainer>
-      <Header />
-    </AppContainer>
+    <UserProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+
+        <ToastContainer 
+          position="top-right"
+          autoClose={3500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+
+      </Router>
+    </UserProvider>
   );
 }
 
 export default App;
-  
-const AppContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  margin-top: -21px;
-  box-sizing: border-box;
-  
-`;

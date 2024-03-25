@@ -1,12 +1,21 @@
 import styled from 'styled-components';
-
+import logo from '../img/logoSmall.png';
 function SobreNos() {
     return (
       
       <Container>
               <MainContentUs>
                 <CenterContent>
-                    aaaaa
+                <Left>
+                <img src={logo} width="610" height="180" alt="Logo"/> 
+                </Left>
+                  <Right>
+                  <h1><span style={{ color: '#158A7A' }}>Quem somos?</span></h1>
+                      <p>
+                      Somos uma empresa que visa a educação e a inclusão de pessoas no mercado de trabalho. 
+                      Acreditamos que a educação é a chave para o sucesso e que todos merecem uma oportunidade de crescer. 
+                      </p>
+                  </Right>
                 </CenterContent>
               </MainContentUs>
       </Container>
@@ -14,7 +23,20 @@ function SobreNos() {
   }
   
   export default SobreNos;
-  
+    const Right = styled.div`
+    width: 50%;
+    display:flex;
+    padding-top: 2%;
+    text-align: center;
+    flex-direction: column;
+    `
+    const Left = styled.div`
+        width: 50%;
+        display:flex;
+        align-items: center;
+        justify-content:center
+     `   
+
   const Container = styled.div`
     width: 100%;
     height: 90%;
