@@ -1,9 +1,13 @@
 import { format, parseISO } from 'date-fns';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import Payments from '../Components/AdminComponents/PaymentComponents/Payments';
+import UserContext from '../context/UserContext';
 
 function Admin() {
+
+  const { userData } = useContext(UserContext);
+  console.log(userData)
 
   const paymentsArr = [
     {
@@ -163,7 +167,6 @@ function Admin() {
   export default Admin;
   
   const Container = styled.div`
-  margin-top: 120px;
     width: auto;
     height: auto;
     p{
@@ -173,7 +176,7 @@ function Admin() {
 
 const MainContentUs = styled.div`
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     padding: 5%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;

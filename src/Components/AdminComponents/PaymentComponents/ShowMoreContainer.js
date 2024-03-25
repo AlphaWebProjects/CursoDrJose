@@ -53,7 +53,7 @@ export default function ShowMoreContainer({showMoreBool, setShowMoreBool, closeB
 const Container = styled.div`
 display: ${props => props.showMoreBool ? 'flex' : 'none'};
 flex-direction: row;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px inset;
+box-shadow: rgba(50, 50, 93, 0.10) 0px 50px 100px -20px inset;
 border-radius: 15px;
 width: auto;
 border-bottom: 1px solid black;

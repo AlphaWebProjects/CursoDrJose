@@ -1,15 +1,15 @@
 import styled from "styled-components"
 // import logo from "../../img/background-auth.jpg"
-import { useCustomForm } from "../../hooks/useCustomForms"
-import { toast } from "react-toastify"
-import api from "../../Services/API.js"
 import { useContext, useState } from "react"
-import UserContext from "../../context/UserContext"
-import { ButtonWrapper } from "./ButtonWrapper"
+import { toast } from "react-toastify"
 import Button from "../../common/form/Button"
-import { InputWrapper } from "./InputWrapper"
 import Input from "../../common/form/Input"
 import { Spinner } from "../../common/spinner/Spinner"
+import UserContext from "../../context/UserContext"
+import { useCustomForm } from "../../hooks/useCustomForms"
+import api from "../../services/API"
+import { ButtonWrapper } from "./ButtonWrapper"
+import { InputWrapper } from "./InputWrapper"
 
 export default function SignUp ({changeAuth}) {
 
