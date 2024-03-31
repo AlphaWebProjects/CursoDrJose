@@ -26,6 +26,11 @@ function Header() {
       const scrollToHeight = (totalHeight * 0.74); // Rolar para baixo 30% da altura total da página
       window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
     }
+    if (index === 5) {
+      const totalHeight = document.body.scrollHeight;
+      const scrollToHeight = (totalHeight * 0.74); // Rolar para baixo 30% da altura total da página
+      window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
+    }
     
 
   };
@@ -35,9 +40,10 @@ function Header() {
         <h1><img src={logo} width="230" height="60" alt="Logo"/> </h1>
       <MiddleHeader>
         <StyledH2 active={activeHeader === 1} onClick={() => handleHeaderClick(1)}>Home</StyledH2>
-        <StyledH2 active={activeHeader === 2} onClick={() => handleHeaderClick(2)}>Sobre nós</StyledH2>
+        <StyledH2 active={activeHeader === 2} onClick={() => handleHeaderClick(2)}>Simva</StyledH2>
         <StyledH2 active={activeHeader === 3} onClick={() => handleHeaderClick(3)}>Sobre o curso</StyledH2>
-        <StyledH2 active={activeHeader === 4} onClick={() => handleHeaderClick(4)}>Pagamento</StyledH2>
+        <StyledH2 active={activeHeader === 4} onClick={() => handleHeaderClick(4)}>Equipe</StyledH2>
+        <StyledH2 active={activeHeader === 5} onClick={() => handleHeaderClick(5)}>Comentários</StyledH2>
         <Indicator activeHeader={activeHeader} />
       </MiddleHeader>
         <StyledLoginButton as={Link} to="/auth">Login</StyledLoginButton>
@@ -86,7 +92,7 @@ const StyledH2 = styled.h2`
 const Indicator = styled.div`
   position: absolute;
   bottom: -1px;
-  left: ${({ activeHeader }) => `${(activeHeader -0.6) * 25}%`};
+  left: ${({ activeHeader }) => `${(activeHeader -0.6) * 20}%`};
   width: 5%;
   height: 2px;
   background-color: #158A7A;

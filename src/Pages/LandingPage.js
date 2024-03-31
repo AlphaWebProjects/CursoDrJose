@@ -3,7 +3,7 @@ import Header from '../Components/Header';
 import Home from '../Components/Home';
 import SobreNos from '../Components/SobreNos';
 import SobreCurso from '../Components/SobreCurso';
-import Pagamento from './Pagamento';
+import Equipe from '../Components/Equipe';
 
 export default function LandingPage() {
     return (
@@ -12,7 +12,7 @@ export default function LandingPage() {
             <Home/>
             <SobreNos/>
             <SobreCurso/>
-            <Pagamento/>
+            <Equipe/>
         </Container>
     );
 }
