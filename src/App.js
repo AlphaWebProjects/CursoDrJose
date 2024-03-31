@@ -1,9 +1,10 @@
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Admin from './Pages/Admin';
+import Auth from './Pages/Auth';
 import LandingPage from './Pages/LandingPage';
 import NotFound from './Pages/NotFound';
-import Auth from './Pages/Auth';
-import { ToastContainer } from 'react-toastify';
 import { UserProvider } from './context/UserContext';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
