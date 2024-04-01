@@ -29,7 +29,7 @@ function SobreCurso() {
           <h1>Sobre o curso</h1>
           <InfoContainer>
             <LeftInfos isVisible={isVisible}>
-              <h2>Um treinamento para vida</h2>
+              <h2>Um treinamento para a vida</h2>
               <ul>
                 <li>Treinamento para manejo da via aérea</li>
                 <li>Desenvolvido por especialistas da USP</li>
@@ -70,11 +70,13 @@ const InfoContainer = styled.div`
   width: 90%;
   height: 100%;
   justify-content: space-between;
+  padding-top: 5vh;
   @media (max-width: 1200px) {
     height: auto;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-top: 1vh;
   }
 `;
 
@@ -88,15 +90,23 @@ const LeftInfos = styled.div`
   transition: opacity 0.5s ease-in-out;
   li {
     margin-top: 10px;
+    font-size: 20px !important;
+  }
+  h2{
+    font-size: 32px !important;
+    border-left: 3.5px solid black;
+    border-right: 3.5px solid black;
+    padding: 1.5vh 3vh;
+    border-radius: 10px;
   }
   @media (max-width: 1200px) {
     height: auto;
     width: 110%;
     h2{
-      font-size: 22px;
+      font-size: 20px !important;
     }
     li{
-      font-size: 15px;
+      font-size: 16px !important;
     }
   }
 `;
@@ -111,7 +121,16 @@ const RightInfos = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 40%;
+    padding: 3vh;
+    box-shadow: #158A7A 0px 5px 15px;
+    border-radius: 15px;
+    margin-right: 4vh;
+    transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
   }
   h2 {
     font-size: 20px;
@@ -134,9 +153,7 @@ const RightInfos = styled.div`
     div{
       margin-bottom: 5vh;
       width: 100%;
-      padding: 3vh;
-      box-shadow: #158A7A 0px 5px 15px;
-      border-radius: 15px;
+      margin-right: 0 !important;
     }
     h2{
       
@@ -179,6 +196,9 @@ const CenterContent = styled.div`
   h1 {
     color: #158a7a;
     font-size: 40px;
+    padding: 12px;
+    border-radius: 12px;
+    border-bottom: 3px solid #158a7a;
   }
   p {
     width: 80%;

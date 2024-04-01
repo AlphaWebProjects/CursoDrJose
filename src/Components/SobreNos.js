@@ -73,8 +73,23 @@ const Right = styled.div`
     opacity: ${({ fadeIn }) => (fadeIn ? 1 : 0)};
   transition: opacity 0.7s ease-in-out;
   }
+  h1{
+    font-size: 45px;
+    padding: 12px;
+    border-radius: 12px;
+    border-bottom: 3px solid #158a7a;
+  }
+  p{
+    font-size: 19px;
+  }
   @media (max-width: 1200px) {
     width: 100%;
+    h1{
+      font-size: 35px;
+    }
+    p{
+      font-size: 17px;
+    }
   }
 `;
 
