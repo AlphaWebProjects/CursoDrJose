@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import React, { useState, useEffect } from 'react';
+import logo from '../img/logoSmall.png';
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,12 +21,13 @@ function Home() {
       <MainContentHome>
         <CenterContent>
           <Left isVisible={isVisible}>
+            <img src={logo}/>
             <h1><span style={{ color: '#158A7A' }}>Domine o Essencial:<br /> Suporte no Manejo da Via Aérea</span></h1>
             <p>
               Descubra o poder de <span style={{ color: '#158A7A' }}> salvar vidas</span> com confiança! Nosso curso de 
               <span style={{ color: '#158A7A' }}> Suporte Integral no Manejo da Via Aérea</span> é a chave para a excelência na prestação de cuidados médicos. 
               Projetado para profissionais de saúde que buscam dominar as <span style={{ color: '#158A7A' }}>técnicas vitais de intervenção em situações críticas</span>, 
-              este curso oferece uma abordagem abrangente, desde os fundamentos até as práticas avançadas
+              este curso oferece uma abordagem abrangente, desde os fundamentos até as práticas avançadas.
             </p>
             <Button  onClick={() => handleHeaderClick()} >Saiba Mais</Button>
           </Left>
@@ -44,6 +46,10 @@ const Container = styled.div`
   background-image: url('https://saocamilo-sp.br/assets/uploads/a11.png');
   background-size: cover;
   background-position: center;
+  @media (max-width: 1200px) {
+    margin-top: 0;
+    height: auto;
+  }
 `;
 
 const MainContentHome = styled.div`
@@ -65,10 +71,33 @@ const Left = styled.div`
   align-items: center;
   padding: 5%;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
-  transition: opacity 1s ease-in-out; /* Transição da opacidade em 1 segundo */
+  transition: opacity 1s ease-in-out;
   p {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
+  }
+  h1{
+    font-size: 40px;
+    padding: 12px;
+    border-radius: 10px;
+    border-bottom: 3px solid #158A7A;
+  }
+  img{
+    display: none;
+  }
+  @media (max-width: 1200px) {
+    img{
+      display: block;
+      width: 35vh;
+      height: 15vh;
+    }
+    p{
+      font-size: 18px ;
+    }
+    h1{
+      font-size: 30px;
+    }
+    padding: 7vh 5%;
   }
 `;
 
@@ -87,6 +116,9 @@ const Button = styled.button`
     border-radius: 20px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   }
+  @media (max-width: 420px) {
+    margin-top: 10px;
+  }
 `;
 
 const CenterContent = styled.div`
@@ -96,4 +128,7 @@ const CenterContent = styled.div`
   border-radius: 20px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   background-color: rgba(255, 255, 255, 0.9);
+  @media (max-width: 420px) {
+    margin-top: 10px;
+  }
 `;

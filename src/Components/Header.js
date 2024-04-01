@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../img/logoSmall.png';
-import { Link } from 'react-router-dom';
 function Header() {
   const [activeHeader, setActiveHeader] = useState(1);
 
@@ -66,6 +66,9 @@ z-index: 2;
   justify-content: space-around;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   backdrop-filter: blur(5px);
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const MiddleHeader = styled.div`

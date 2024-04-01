@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import doctor2 from '../img/FotosAlunos1.jpeg';
 import img1 from '../img/img_curso1.png';
@@ -52,7 +52,7 @@ function SobreCurso() {
               </div>
               <div>
                 <img src={img3} width="150" height="150" alt="Logo" />
-                <h2>Qualidade Usp</h2>
+                <h2>Qualidade USP</h2>
                 <h3>Equipe formada no maior centro de excelência médica do país.</h3>
               </div>
             </RightInfos>
@@ -70,6 +70,12 @@ const InfoContainer = styled.div`
   width: 90%;
   height: 100%;
   justify-content: space-between;
+  @media (max-width: 1200px) {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 const LeftInfos = styled.div`
@@ -82,6 +88,16 @@ const LeftInfos = styled.div`
   transition: opacity 0.5s ease-in-out;
   li {
     margin-top: 10px;
+  }
+  @media (max-width: 1200px) {
+    height: auto;
+    width: 110%;
+    h2{
+      font-size: 22px;
+    }
+    li{
+      font-size: 15px;
+    }
   }
 `;
 
@@ -109,6 +125,23 @@ const RightInfos = styled.div`
     font-size: 10px;
     text-align: center;
   }
+  @media (max-width: 1200px) {
+    height: auto;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8vh;
+    div{
+      margin-bottom: 5vh;
+      width: 100%;
+      padding: 3vh;
+      box-shadow: #158A7A 0px 5px 15px;
+      border-radius: 15px;
+    }
+    h2{
+      
+    }
+  }
 `;
 
 const Container = styled.div`
@@ -117,6 +150,9 @@ const Container = styled.div`
   background-image: url(${doctor2});
   background-size: cover;
   background-position: center top 60%;
+  @media (max-width: 1200px) {
+    height: auto;
+  }
 `;
 
 const MainContentCurso = styled.div`
@@ -124,6 +160,9 @@ const MainContentCurso = styled.div`
   height: 100%;
   display: flex;
   padding: 5%;
+  @media (max-width: 1200px) {
+    height: auto;
+  }
 `;
 
 const CenterContent = styled.div`
