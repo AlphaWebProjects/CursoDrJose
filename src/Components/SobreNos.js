@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import logo from '../img/logoSmall.png';
 
@@ -35,8 +35,11 @@ function SobreNos() {
             <p>
               Nosso objetivo é <span style={{ color: '#158A7A' }}>trazer segurança para o médico no manejo da via aérea. </span>   
               É importante ter em mente que a laringoscopia é apenas uma parte do grande cenário que permeia o manejo da via aérea do paciente crítico. 
-              Existem pré-requisitos <span style={{ color: '#158A7A' }}> fundamentais e necessários </span>  antes da  técnica de intubação que precisam ser dominados para se ter uma via área segura e são sobre esses pilares que o SIMVA se fundamenta, 
-              propiciando diretrizes bem estruturadas para o manejo e segurança no cuidado da via aérea 
+               
+            </p>
+            <p>
+            Existem pré-requisitos <span style={{ color: '#158A7A' }}> fundamentais e necessários </span>  antes da  técnica de intubação que precisam ser dominados para se ter uma via área segura e são sobre esses pilares que o SIMVA se fundamenta, 
+              propiciando diretrizes bem estruturadas para o manejo e segurança no cuidado da via aérea.
             </p>
           </Right>
         </CenterContent>
@@ -52,6 +55,11 @@ const AnimatedImage = styled.img`
   height: 40%;
   opacity: ${({ fadeIn }) => (fadeIn ? 1 : 0)};
   transition: opacity 0.7s ease-in-out;
+  @media (max-width: 1200px) {
+    height: auto;
+    width: 35vh;
+    height: 15vh;
+  }
 `;
 
 const Right = styled.div`
@@ -65,6 +73,9 @@ const Right = styled.div`
     opacity: ${({ fadeIn }) => (fadeIn ? 1 : 0)};
   transition: opacity 0.7s ease-in-out;
   }
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 const Left = styled.div`
@@ -77,6 +88,9 @@ const Left = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 90%;
+  @media (max-width: 1200px) {
+    height: auto;
+  }
 `;
 
 const MainContentUs = styled.div`
@@ -85,9 +99,12 @@ const MainContentUs = styled.div`
   display: flex;
   padding: 5%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  background: #ADA996;  /* fallback for old browsers */
+  background: #ADA996;
   background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  
   background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); 
+  @media (max-width: 1200px) {
+    height: auto;
+  }
 `;
 
 const CenterContent = styled.div`
@@ -101,6 +118,11 @@ const CenterContent = styled.div`
   &:hover {
     transform: scale(1.015);
     border-radius: 20px;
+    box-shadow: #158A7A 0px 5px 15px;
+  }
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
     box-shadow: #158A7A 0px 5px 15px;
   }
 `;
