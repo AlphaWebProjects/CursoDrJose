@@ -58,13 +58,23 @@ const Members= styled.div`
   width: 100%;  
   justify-content: space-around;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
-    transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  img {
+    height: 70%;
+    width: 80%;
+    transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  }
   div{
     display:flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     width:20%
+
   }
   p{
     text-align:center;
@@ -77,6 +87,10 @@ const Members= styled.div`
       width: 100%;
       border-top: 1px solid black;
       padding: 9vh 0;
+    }
+    img{
+      height: 60%;
+      width: 72%;
     }
   }
 `
@@ -106,6 +120,10 @@ const CenterContent = styled.div`
     h1 {
     color: #158a7a;
     font-size: 40px;
+    padding: 12px;
+    border-radius: 12px;
+    border-bottom: 3px solid #158a7a;
+    margin-bottom: 5vh;
   }
   @media (max-width: 1200px) {
     height: auto;
