@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FaCheckCircle } from "react-icons/fa";
 import styled from 'styled-components';
 import doctor2 from '../img/FotosAlunos1.jpeg';
 import img1 from '../img/img_curso1.png';
@@ -31,13 +32,13 @@ function SobreCurso() {
             <LeftInfos isVisible={isVisible}>
               <h2>Um treinamento para a vida</h2>
               <ul>
-                <li>Treinamento para manejo da via aérea</li>
-                <li>Desenvolvido por especialistas da USP</li>
-                <li>Voltado para a realidade médica do dia a dia</li>
-                <li>Fundamentado em casos reais</li>
-                <li>Gerenciamento seguro da via aérea avançada</li>
-                <li>Manejo refinado de condução de fármacos</li>
-              </ul>
+                <li>- Treinamento para manejo da via aérea {<Check/>}</li>
+                <li>- Desenvolvido por especialistas da USP {<Check/>}</li>
+                <li>- Voltado para a realidade médica do dia a dia {<Check/>}</li>
+                <li>- Fundamentado em casos reais {<Check/>}</li>
+                <li>- Gerenciamento seguro da via aérea avançada {<Check/>}</li>
+                <li>- Manejo refinado de condução de fármacos {<Check/>}</li>
+              </ul> 
             </LeftInfos>
             <RightInfos isVisible={isVisible}>
               <div>
@@ -70,7 +71,7 @@ const InfoContainer = styled.div`
   width: 90%;
   height: 100%;
   justify-content: space-between;
-  padding-top: 5vh;
+  padding-top: 1vh;
   @media (max-width: 1200px) {
     height: auto;
     flex-direction: column;
@@ -88,9 +89,36 @@ const LeftInfos = styled.div`
   flex-direction: column;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transition: opacity 0.5s ease-in-out;
+  ul{
+    padding: 4vh 5vh;
+    border: 3px solid #158A7A;
+    height: auto;
+    border-radius: 13px;
+    transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    &:hover {
+    transform: scale(1.015);
+    cursor: pointer;
+    box-shadow: #158A7A 0px 5px 15px;
+    border: 1px solid #158A7A;
+  }
+  }
   li {
     margin-top: 10px;
-    font-size: 20px !important;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #158A7A;
+    padding: 1vh 0;
+    width: 50vh;
+    &:last-child {
+    border: none;
+  }
+  transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
   }
   h2{
     font-size: 32px !important;
@@ -106,18 +134,36 @@ const LeftInfos = styled.div`
       font-size: 20px !important;
     }
     li{
-      font-size: 16px !important;
+      font-size: 14px !important;
+      width: auto;
+      margin: 0;
+      padding: 2vh 1vh;
+    }
+    ul{
+      width: 100%;
+      padding: 0;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
     }
   }
 `;
+
+const Check = styled(FaCheckCircle)`
+color:green;
+width: 2vh !important;
+height: 2vh !important;
+`
 
 const RightInfos = styled.div`
   display: flex;
   width: 45%;
   justify-content: space-between;
+  align-items: center;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transition: opacity 0.5s ease-in-out;
   div {
+    height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -163,7 +209,7 @@ const RightInfos = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  height: 90%;
+  height: 100%;
   background-image: url(${doctor2});
   background-size: cover;
   background-position: center top 60%;
