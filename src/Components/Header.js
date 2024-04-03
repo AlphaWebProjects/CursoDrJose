@@ -7,29 +7,23 @@ function Header() {
 
   const handleHeaderClick = (index) => {
     setActiveHeader(index);
-    console.log(index)
     if (index === 1) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     if (index === 2) {
-      const totalHeight = document.body.scrollHeight;
-      const scrollToHeight = (totalHeight * 0.24); // Rolar para baixo 30% da altura total da página
-      window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
+      window.scrollTo({ top: 890, behavior: 'smooth' });
     }
     if (index === 3) {
-      const totalHeight = document.body.scrollHeight;
-      const scrollToHeight = (totalHeight * 0.50); // Rolar para baixo 30% da altura total da página
-      window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
+      window.scrollTo({ top: 1800, behavior: 'smooth' });
     }
     if (index === 4) {
-      const totalHeight = document.body.scrollHeight;
-      const scrollToHeight = (totalHeight * 0.74); // Rolar para baixo 30% da altura total da página
-      window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
+      window.scrollTo({ top: 2700, behavior: 'smooth' });
     }
     if (index === 5) {
-      const totalHeight = document.body.scrollHeight;
-      const scrollToHeight = (totalHeight * 0.74); // Rolar para baixo 30% da altura total da página
-      window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
+      window.scrollTo({ top: 3750, behavior: 'smooth' });
+    }
+    if (index === 6) {
+      window.scrollTo({ top: 4825, behavior: 'smooth' });
     }
     
 
@@ -44,7 +38,8 @@ function Header() {
         <StyledH2 active={activeHeader === 3} onClick={() => handleHeaderClick(3)}>Sobre o curso</StyledH2>
         <StyledH2 active={activeHeader === 4} onClick={() => handleHeaderClick(4)}>Equipe</StyledH2>
         <StyledH2 active={activeHeader === 5} onClick={() => handleHeaderClick(5)}>Comentários</StyledH2>
-        <Indicator activeHeader={activeHeader} />
+        <StyledH2 active={activeHeader === 6} onClick={() => handleHeaderClick(6)}>Oferta</StyledH2>
+        {/* <Indicator activeHeader={activeHeader} /> */}
       </MiddleHeader>
         <StyledLoginButton as={Link} to="/auth">Login</StyledLoginButton>
     </HeaderContainer>
