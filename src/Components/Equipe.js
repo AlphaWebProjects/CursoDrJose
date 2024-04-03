@@ -8,7 +8,7 @@ function Equipe() {
     useEffect(() => {
       setTimeout(() => {
         setIsVisible(true);
-      }, 50); // Altera a opacidade após 1 segundo
+      }, 200); // Altera a opacidade após 1 segundo
     }, []);
 
     return (
@@ -58,7 +58,7 @@ const Members= styled.div`
   width: 100%;  
   justify-content: space-around;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
-  transition: opacity 1s ease-in-out;
+  transition: opacity 2s ease-in-out;
   img {
     height: 70%;
     width: 80%;

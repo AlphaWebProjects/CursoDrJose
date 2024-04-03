@@ -10,7 +10,7 @@ function Home() {
 
     setTimeout(() => {
       setIsVisible(true);
-    }, 50); // Altera a opacidade após 1 segundo
+    }, 500); // Altera a opacidade após 1 segundo
 
     const handleResize = () => {
       setWidth(window.innerWidth);

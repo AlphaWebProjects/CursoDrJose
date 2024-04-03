@@ -54,7 +54,7 @@ const AnimatedImage = styled.img`
   width: 80%;
   height: 40%;
   opacity: ${({ fadeIn }) => (fadeIn ? 1 : 0)};
-  transition: opacity 0.7s ease-in-out;
+  transition: opacity 2s ease-in-out;
   @media (max-width: 1200px) {
     height: auto;
     width: 35vh;
@@ -129,7 +129,7 @@ const CenterContent = styled.div`
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 5%;
-  transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+  transition: transform 3s, box-shadow 0.3s, border-radius 0.3s;
   &:hover {
     transform: scale(1.015);
     border-radius: 20px;
