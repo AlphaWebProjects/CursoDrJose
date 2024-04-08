@@ -1,14 +1,14 @@
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import felipe from '../img/felipe.png';
 import gabriel from '../img/gabriel.png';
-import React, { useState, useEffect } from 'react';
 import jose from '../img/jose.png';
 function Equipe() {
   const [isVisible, setIsVisible] = useState(false);
     useEffect(() => {
       setTimeout(() => {
         setIsVisible(true);
-      }, 50); // Altera a opacidade após 1 segundo
+      }, 200); // Altera a opacidade após 1 segundo
     }, []);
 
     return (
@@ -48,6 +48,9 @@ function Equipe() {
     width: 100%;
     height: 90%;
     margin-top: -2px;
+    @media (max-width: 1200px) {
+     height: auto;
+  }
 `;
 
 const Members= styled.div`
@@ -55,17 +58,40 @@ const Members= styled.div`
   width: 100%;  
   justify-content: space-around;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
-    transition: opacity 1s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  img {
+    height: 70%;
+    width: 80%;
+    transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  }
   div{
     display:flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     width:20%
+
   }
   p{
     text-align:center;
     font-size: 15px;
+  }
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+    div{
+      width: 100%;
+      border-top: 1px solid black;
+      padding: 9vh 0;
+    }
+    img{
+      height: 60%;
+      width: 72%;
+    }
   }
 `
 
@@ -74,9 +100,12 @@ const MainContentEquipe= styled.div`
     height: 100%;
     display: flex;
     padding: 5%;
-    background: #ADA996;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ADA996;
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); 
+    @media (max-width: 1200px) {
+    height: auto;
+  }
 `
 const CenterContent = styled.div`
     width: 100%;
@@ -91,5 +120,15 @@ const CenterContent = styled.div`
     h1 {
     color: #158a7a;
     font-size: 40px;
+    padding: 12px;
+    border-radius: 12px;
+    border-bottom: 3px solid #158a7a;
+    margin-bottom: 5vh;
+  }
+  @media (max-width: 1200px) {
+    height: auto;
+    h1{
+      margin-bottom: 8vh;
+    }
   }
 `

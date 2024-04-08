@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import Depoimentos from '../Components/Depoimentos';
+import Equipe from '../Components/Equipe';
+import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 import Home from '../Components/Home';
-import SobreNos from '../Components/SobreNos';
+import Pagamento from '../Components/Pagamento';
 import SobreCurso from '../Components/SobreCurso';
-import Equipe from '../Components/Equipe';
+import SobreNos from '../Components/SobreNos';
 
 export default function LandingPage() {
     return (
@@ -13,6 +16,9 @@ export default function LandingPage() {
             <SobreNos/>
             <SobreCurso/>
             <Equipe/>
+            <Depoimentos/>
+            <Pagamento/>
+            <Footer/>
         </Container>
     );
 }

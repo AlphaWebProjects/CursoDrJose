@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { FaCheckCircle } from "react-icons/fa";
 import styled from 'styled-components';
 import doctor2 from '../img/FotosAlunos1.jpeg';
-import img1 from '../img/img_curso1.png';
-import img2 from '../img/img_curso2.png';
-import img3 from '../img/img_curso3.png';
 
-function SobreCurso() {
+function Pagamento() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -27,34 +24,25 @@ function SobreCurso() {
     <Container>
       <MainContentCurso id="mainContentCurso">
         <CenterContent>
-          <h1>Sobre o curso</h1>
+          <h1>Sobre a nossa oferta</h1>
           <InfoContainer>
             <LeftInfos isVisible={isVisible}>
-              <h2>Um treinamento para a vida</h2>
+              <h2>Investimento</h2>
               <ul>
-                <li>- Treinamento para manejo da via aérea {<Check/>}</li>
-                <li>- Desenvolvido por especialistas da USP {<Check/>}</li>
-                <li>- Voltado para a realidade médica do dia a dia {<Check/>}</li>
-                <li>- Fundamentado em casos reais {<Check/>}</li>
-                <li>- Gerenciamento seguro da via aérea avançada {<Check/>}</li>
-                <li>- Manejo refinado de condução de fármacos {<Check/>}</li>
+                <li>- Preparação completa para o manejo de ferramentas {<Check/>}</li>
+                <li>- +20 aplicações práticas com feedback {<Check/>}</li>
+                <li>- Suporte completo para dúvidas {<Check/>}</li>
+                <li>- Metodologia moderna e aplicável {<Check/>}</li>
+                <li>- Contato direto com a equipe de instrutores {<Check/>}</li>
+                <li>- Reembolso em até 7 dias sem burocracia {<Check/>}</li>
               </ul> 
             </LeftInfos>
             <RightInfos isVisible={isVisible}>
               <div>
-                <img src={img1} width="150" height="150" alt="Logo" />
-                <h2>Prático</h2>
-                <h3>Treinamento prático com casos clínicos reais</h3>
-              </div>
-              <div>
-                <img src={img2} width="150" height="150" alt="Logo" />
-                <h2>Teórico</h2>
-                <h3>Conteúdo didático sedimentado através de uma metodologia exclusiva</h3>
-              </div>
-              <div>
-                <img src={img3} width="150" height="150" alt="Logo" />
-                <h2>Qualidade USP</h2>
-                <h3>Equipe formada no maior centro de excelência médica do país.</h3>
+                <p>De <b>R$ 1299,99</b> por até</p>
+                <h2>12x de <br></br>R$ 87,50</h2>
+                <p>ou R$ 900,00 à vista</p>
+                <Button>Quero garantir minha vaga!</Button>
               </div>
             </RightInfos>
           </InfoContainer>
@@ -64,7 +52,7 @@ function SobreCurso() {
   );
 }
 
-export default SobreCurso;
+export default Pagamento;
 
 const InfoContainer = styled.div`
   display: flex;
@@ -99,7 +87,6 @@ const LeftInfos = styled.div`
     transform: scale(1.015);
     cursor: pointer;
     box-shadow: #158A7A 0px 5px 15px;
-    border: 1px solid #158A7A;
   }
   }
   li {
@@ -110,7 +97,7 @@ const LeftInfos = styled.div`
     align-items: center;
     border-bottom: 2px solid #158A7A;
     padding: 1vh 0;
-    width: 50vh;
+    width: 55vh;
     &:last-child {
     border: none;
   }
@@ -122,10 +109,12 @@ const LeftInfos = styled.div`
   }
   h2{
     font-size: 32px !important;
-    border-left: 3.5px solid black;
-    border-right: 3.5px solid black;
+    border-top: 3.5px solid black;
+    border-bottom: 3.5px solid black;
+    box-shadow: #222726 0px 0px 10px;
     padding: 1.5vh 3vh;
     border-radius: 10px;
+
   }
   @media (max-width: 1200px) {
     height: auto;
@@ -136,7 +125,6 @@ const LeftInfos = styled.div`
     li{
       font-size: 14px !important;
       width: auto;
-      margin: 0;
       padding: 2vh 1vh;
     }
     ul{
@@ -156,54 +144,73 @@ height: 2vh !important;
 `
 
 const RightInfos = styled.div`
-  display: flex;
-  width: 45%;
-  justify-content: space-between;
-  align-items: center;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transition: opacity 2s ease-in-out;
+  height: auto;
+  padding: 0 !important;
+  width: 50%;
+  padding-top: 6vh !important;
   div {
-    height: 70%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
-    padding: 3vh;
+    padding-top: 5vh;
+    width: 100%;
     box-shadow: #158A7A 0px 5px 15px;
     border-radius: 15px;
-    margin-right: 4vh;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
     &:hover {
-    transform: scale(1.1);
-    cursor: pointer;
+    transform: scale(1.01);
   }
   }
-  h2 {
-    font-size: 20px;
-  }
-  h3{
-    text-align:center;
-    font-weight: 500;
-    font-size: 15px;
-  }
-  p {
-    font-size: 10px;
+  p{
+    font-size: 36px !important;
+    margin: 0 ;
     text-align: center;
+  }
+  h2{
+    font-size: 55px;
+    color: green;
+    margin: 0 ;
+    text-align: center;
+  }
+  b{
+    text-decoration: line-through;
   }
   @media (max-width: 1200px) {
     height: auto;
     width: 90%;
     flex-direction: column;
     align-items: center;
-    margin-top: 8vh;
     div{
       margin-bottom: 5vh;
       width: 100%;
-      margin-right: 0 !important;
     }
-    h2{
-      
+    p{
+      font-size: 30px;
     }
+  }
+`;
+
+const Button = styled.button`
+  background-color: #158A7A;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 28px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 50px;
+  transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+  &:hover {
+    transform: scale(1.05);
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+  }
+  @media (max-width: 420px) {
+    margin-top: 10px;
+    font-size: 20px;
   }
 `;
 
@@ -245,9 +252,9 @@ const CenterContent = styled.div`
     padding: 12px;
     border-radius: 12px;
     border-bottom: 3px solid #158a7a;
+    text-align: center;
   }
   p {
-    width: 80%;
     font-size: 20px;
   }
 `;
