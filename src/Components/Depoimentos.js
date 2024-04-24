@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import doc from '../img/doc.jpg';
+import aluno from '../img/aluno-simva.jpg'
 
 function Depoimentos() {
 
@@ -32,6 +32,9 @@ function Depoimentos() {
 
     }, []);
 
+
+    <div class="img-circle img-layout-11 bgLazyload entered loaded" role="img" aria-label="Isabelle Boud`hors" data-bg="https://static1.s123-cdn-static-a.com/uploads/8125915/400_649da08923f24.jpg" style="background-position: center center; background-image: url(&quot;https://static1.s123-cdn-static-a.com/uploads/8125915/400_649da08923f24.jpg&quot;);" data-ll-status="loaded"></div>
+
     return (
         <Container>
         <MainContentEquipe>
@@ -45,10 +48,10 @@ function Depoimentos() {
             }}
             navigation={width > 1200 ? true : false}
             modules={[Pagination, Navigation, Autoplay, EffectFade]}
-            slidesPerView={width > 1200 ? 2 : 1}
+            slidesPerView={1}
             spaceBetween={40}
             autoplay={{
-              delay: width > 1200 ? 3500 : 5000,
+              delay: width > 1200 ? 3500 : 6000,
               disableOnInteraction: true,
             }}
             
@@ -56,96 +59,32 @@ function Depoimentos() {
 
             <StyledSwiperSlide>
               <div>
-                <img src={doc} width="150" height="150" alt="Logo" />
-                <h2>João Carlos</h2>
-                <h3>Estudante de medicina pela USP</h3>
-                <p>"Este curso mudou completamente minha prática clínica! 
-                  Aprendi técnicas avançadas de manejo da via aérea que me deram muito mais confiança ao lidar com situações críticas. Recomendo a todos os colegas!"
+                <img src='https://static1.s123-cdn-static-a.com/uploads/8125915/400_649da08923f24.jpg' width="150" height="150" alt="Logo" />
+                <h2>Isabelle Boud`hors</h2>
+                <h3>Estudante de Medicina</h3>
+                <p> "Treinamentos como esse são essenciais para todos. Apreender a lidar com os mais diversos cenários que envolvem o manejo da via área e ter confiança no uso das drogas é de fundamental importância. Apreendi no SIMVA o que nunca tinha visto na faculdade. Obrigado a toda equipe!"</p>
+              </div>
+            </StyledSwiperSlide>
+
+            <StyledSwiperSlide>
+              <div>
+                <img src='https://static1.s123-cdn-static-a.com/uploads/8125915/400_649da2726cc04.jpg' width="150" height="150" alt="Logo" />
+                <h2>Caroline Giacomelli</h2>
+                <h3>Médica</h3>
+                <p>"Excelente, foi muito produtivo. É de suma importância sabermos de todo o processo envolvido no manejo da via aérea. O treinamento do SIMVA me trouxe uma outra visão sobre o cuidado da via aérea e muito mais segurança a partir de agora."
                   </p>
               </div>
             </StyledSwiperSlide>
 
             <StyledSwiperSlide>
               <div>
-                <img src={doc} width="150" height="150" alt="Logo" />
-                <h2>Fabrício Nunes</h2>
-                <h3>Estudante de medicina pela USP</h3>
-                <p> "Como estudante de medicina, este curso foi essencial para minha formação. Aprendi não apenas as habilidades técnicas necessárias para lidar com a via aérea, mas também ganhei uma compreensão mais profunda da fisiologia e das melhores práticas. 
-                  Sem dúvida, um investimento valioso em minha carreira."</p>
+                <img src={aluno} width="150" height="150" alt="Logo" />
+                <h2>Guilherme Dossi</h2>
+                <h3>Médico</h3>
+                <p> "Toda equipe esta de parabéns. Foi muito produtivo, sai pronto para manejar uma via aérea e principalmente utilizar as drogas para o cuidado com o paciente. Indicarei para todo mundo com certeza."</p>
               </div>
             </StyledSwiperSlide>
 
-            <StyledSwiperSlide>
-              <div>
-                <img src={doc} width="150" height="150" alt="Logo" />
-                <h2>Pedro Rodrigues</h2>
-                <h3>Estudante de medicina pela USP</h3>
-                <p> "O curso 'Manejo da Via Aérea' superou todas as minhas expectativas! Os instrutores são extremamente qualificados e as aulas são práticas e envolventes. 
-                  Saí do curso me sentindo muito mais preparada para lidar com emergências médicas."</p>
-              </div>
-            </StyledSwiperSlide>
-
-            <StyledSwiperSlide>
-              <div>
-                <img src={doc} width="150" height="150" alt="Logo" />
-                <h2>João Carlos</h2>
-                <h3>Estudante de medicina pela USP</h3>
-                <p>"Este curso mudou completamente minha prática clínica! 
-                  Aprendi técnicas avançadas de manejo da via aérea que me deram muito mais confiança ao lidar com situações críticas. Recomendo a todos os colegas!"
-                </p>
-              </div>
-            </StyledSwiperSlide>
-
-            <StyledSwiperSlide>
-              <div>
-                <img src={doc} width="150" height="150" alt="Logo" />
-                <h2>Fabrício Nunes</h2>
-                <h3>Estudante de medicina pela USP</h3>
-                <p> "Como estudante de medicina, este curso foi essencial para minha formação. Aprendi não apenas as habilidades técnicas necessárias para lidar com a via aérea, 
-                  mas também ganhei uma compreensão mais profunda da fisiologia e das melhores práticas. Sem dúvida, um investimento valioso em minha carreira."</p>
-              </div>
-            </StyledSwiperSlide>
-
-            <StyledSwiperSlide>
-              <div>
-                <img src={doc} width="150" height="150" alt="Logo" />
-                <h2>Pedro Rodrigues</h2>
-                <h3>Estudante de medicina pela USP</h3>
-                <p> "O curso 'Manejo da Via Aérea' superou todas as minhas expectativas! Os instrutores são extremamente qualificados e as aulas são práticas e envolventes. 
-                  Saí do curso me sentindo muito mais preparada para lidar com emergências médicas."</p>
-              </div>
-            </StyledSwiperSlide>
-
-            <StyledSwiperSlide>
-              <div>
-                <img src={doc} width="150" height="150" alt="Logo" />
-                <h2>João Carlos</h2>
-                <h3>Estudante de medicina pela USP</h3>
-                <p>"Este curso mudou completamente minha prática clínica! 
-                  Aprendi técnicas avançadas de manejo da via aérea que me deram muito mais confiança ao lidar com situações críticas. Recomendo a todos os colegas!"
-                </p>
-              </div>
-            </StyledSwiperSlide>
-
-            <StyledSwiperSlide>
-              <div>
-                <img src={doc} width="150" height="150" alt="Logo" />
-                <h2>Fabrício Nunes</h2>
-                <h3>Estudante de medicina pela USP</h3>
-                <p> "Como estudante de medicina, este curso foi essencial para minha formação. Aprendi não apenas as habilidades técnicas necessárias para lidar com a via aérea, 
-                  mas também ganhei uma compreensão mais profunda da fisiologia e das melhores práticas. Sem dúvida, um investimento valioso em minha carreira."</p>
-              </div>
-            </StyledSwiperSlide>
-
-            <StyledSwiperSlide>
-              <div>
-                <img src={doc} width="150" height="150" alt="Logo" />
-                <h2>Pedro Rodrigues</h2>
-                <h3>Estudante de medicina pela USP</h3>
-                <p> "O curso 'Manejo da Via Aérea' superou todas as minhas expectativas! Os instrutores são extremamente qualificados e as aulas são práticas e envolventes. 
-                  Saí do curso me sentindo muito mais preparada para lidar com emergências médicas."</p>
-              </div>
-            </StyledSwiperSlide>
 
           </Swiper>
             
@@ -182,25 +121,37 @@ const Members= styled.div`
   }
 `
 const StyledSwiperSlide = styled(SwiperSlide)`
-padding: 10vh 0 5vh 0 !important;
+padding: 10vh 0 0 0 !important;
 transition: transform 0.8s;
-height: 90% !important;
+height: 70% !important;
+display: flex;
+align-items: center;
+justify-content: center;
+
 img{
-  width: 23vh;
-  height: 18vh;
+  width: 40%;
+  height: 40%;
   border-radius: 25%;
   box-shadow: #158A7A 0px 3px 10px;
+  @media (max-width: 1200px) {
+    width: 80%;
+    height: 65%;
+  }
 }
 div{
     height: 90% !important;
     text-align: center !important;
+    max-width: 70%;
+    @media (max-width: 1200px) {
+    max-width: 95% !important;
+  }
   }
 &:hover {
     transform: scale(1.03);
     cursor: pointer;
   }
   @media (max-width: 1200px) {
-    padding: 3vh 1.5vh;
+    padding: 1vh 1.5vh;
   }
 
 `
