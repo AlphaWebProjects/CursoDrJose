@@ -33,9 +33,6 @@ function Depoimentos() {
 
     }, []);
 
-
-    <div class="img-circle img-layout-11 bgLazyload entered loaded" role="img" aria-label="Isabelle Boud`hors" data-bg="https://static1.s123-cdn-static-a.com/uploads/8125915/400_649da08923f24.jpg" style="background-position: center center; background-image: url(&quot;https://static1.s123-cdn-static-a.com/uploads/8125915/400_649da08923f24.jpg&quot;);" data-ll-status="loaded"></div>
-
     return (
         <Container>
         <MainContentEquipe>
