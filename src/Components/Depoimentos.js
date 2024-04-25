@@ -7,6 +7,7 @@ import 'swiper/css/scrollbar';
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import aluno from '../img/aluno-simva.jpg'
+import aluno2 from '../img/aluno-simva2.jpg'
 
 function Depoimentos() {
 
@@ -59,7 +60,7 @@ function Depoimentos() {
 
             <StyledSwiperSlide>
               <div>
-                <img src='https://static1.s123-cdn-static-a.com/uploads/8125915/400_649da08923f24.jpg' width="150" height="150" alt="Logo" />
+                <img src={aluno2} width="150" height="150" alt="Logo" />
                 <h2>Isabelle Boud`hors</h2>
                 <h3>Estudante de Medicina</h3>
                 <p> "Treinamentos como esse são essenciais para todos. Apreender a lidar com os mais diversos cenários que envolvem o manejo da via área e ter confiança no uso das drogas é de fundamental importância. Apreendi no SIMVA o que nunca tinha visto na faculdade. Obrigado a toda equipe!"</p>
