@@ -51,14 +51,12 @@ function SobreNos() {
 export default SobreNos;
 
 const AnimatedImage = styled.img`
-  width: 80%;
-  height: 40%;
   opacity: ${({ fadeIn }) => (fadeIn ? 1 : 0)};
   transition: opacity 2s ease-in-out;
   @media (max-width: 1200px) {
     height: auto;
     width: 35vh;
-    height: 15vh;
+    height: 11vh;
   }
 `;
 

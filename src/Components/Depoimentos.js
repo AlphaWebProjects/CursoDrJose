@@ -49,10 +49,10 @@ function Depoimentos() {
             }}
             navigation={width > 1200 ? true : false}
             modules={[Pagination, Navigation, Autoplay, EffectFade]}
-            slidesPerView={width > 1200 ? 2 : 1}
+            slidesPerView={1}
             spaceBetween={40}
             autoplay={{
-              delay: width > 1200 ? 3500 : 5000,
+              delay: width > 1200 ? 3500 : 6000,
               disableOnInteraction: true,
             }}
             
@@ -213,14 +213,22 @@ const Members= styled.div`
   }
 `
 const StyledSwiperSlide = styled(SwiperSlide)`
-padding: 10vh 0 5vh 0 !important;
+padding: 10vh 0 0 0 !important;
 transition: transform 0.8s;
-height: 90% !important;
+height: 70% !important;
+display: flex;
+align-items: center;
+justify-content: center;
+
 img{
   width: 23vh;
   height: 18vh;
   border-radius: 20px;
   box-shadow: #158A7A 0px 3px 10px;
+  @media (max-width: 1200px) {
+    width: 80%;
+    height: 65%;
+  }
 }
 div{
     height: 90% !important;
@@ -235,7 +243,7 @@ div{
     cursor: pointer;
   }
   @media (max-width: 1200px) {
-    padding: 3vh 1.5vh;
+    padding: 1vh 1.5vh;
   }
 
 `

@@ -32,12 +32,12 @@ function SobreCurso() {
             <LeftInfos isVisible={isVisible}>
               <h2>Um treinamento para a vida</h2>
               <ul>
-                <li>- Treinamento para manejo da via aérea {<Check/>}</li>
-                <li>- Desenvolvido por especialistas da USP {<Check/>}</li>
-                <li>- Voltado para a realidade médica do dia a dia {<Check/>}</li>
-                <li>- Fundamentado em casos reais {<Check/>}</li>
-                <li>- Gerenciamento seguro da via aérea avançada {<Check/>}</li>
-                <li>- Manejo refinado de condução de fármacos {<Check/>}</li>
+                <li>• Treinamento para manejo da via aérea {<Check/>}</li>
+                <li>• Desenvolvido por especialistas da USP {<Check/>}</li>
+                <li>• Voltado para a realidade médica do dia a dia {<Check/>}</li>
+                <li>• Fundamentado em casos reais {<Check/>}</li>
+                <li>• Gerenciamento seguro da via aérea avançada {<Check/>}</li>
+                <li>• Manejo refinado de condução de fármacos {<Check/>}</li>
               </ul> 
             </LeftInfos>
             <RightInfos isVisible={isVisible}>
@@ -95,6 +95,7 @@ const LeftInfos = styled.div`
     height: auto;
     border-radius: 13px;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    list-style-type: disc !important;
     &:hover {
     transform: scale(1.015);
     cursor: pointer;
@@ -114,10 +115,13 @@ const LeftInfos = styled.div`
     &:last-child {
     border: none;
   }
-  transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
     &:hover {
     transform: scale(1.1);
     cursor: pointer;
+    @media (max-width: 1200px) {
+    transform: scale(1);
+  }
   }
   }
   h2{
@@ -213,6 +217,7 @@ const Container = styled.div`
   background-image: url(${doctor2});
   background-size: cover;
   background-position: center top 60%;
+  list-style-type: disc !important;
   @media (max-width: 1200px) {
     height: auto;
   }

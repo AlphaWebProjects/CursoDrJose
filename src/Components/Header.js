@@ -23,7 +23,7 @@ function Header() {
       window.scrollTo({ top: 3750, behavior: 'smooth' });
     }
     if (index === 6) {
-      window.scrollTo({ top: 4825, behavior: 'smooth' });
+      window.scrollTo({ top: 4999, behavior: 'smooth' });
     }
     
 
@@ -37,7 +37,7 @@ function Header() {
         <StyledH2 active={activeHeader === 2} onClick={() => handleHeaderClick(2)}>Simva</StyledH2>
         <StyledH2 active={activeHeader === 3} onClick={() => handleHeaderClick(3)}>Sobre o curso</StyledH2>
         <StyledH2 active={activeHeader === 4} onClick={() => handleHeaderClick(4)}>Equipe</StyledH2>
-        <StyledH2 active={activeHeader === 5} onClick={() => handleHeaderClick(5)}>Comentários</StyledH2>
+        <StyledH2 active={activeHeader === 5} onClick={() => handleHeaderClick(5)}>Depoimentos</StyledH2>
         <StyledH2 active={activeHeader === 6} onClick={() => handleHeaderClick(6)}>Oferta</StyledH2>
         {/* <Indicator activeHeader={activeHeader} /> */}
       </MiddleHeader>

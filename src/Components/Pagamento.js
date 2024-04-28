@@ -14,6 +14,8 @@ function Pagamento() {
       setIsVisible(isVisible);
     };
 
+    //function
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -29,12 +31,12 @@ function Pagamento() {
             <LeftInfos isVisible={isVisible}>
               <h2>Investimento</h2>
               <ul>
-                <li>- Preparação completa para o manejo de ferramentas {<Check/>}</li>
-                <li>- +20 aplicações práticas com feedback {<Check/>}</li>
-                <li>- Suporte completo para dúvidas {<Check/>}</li>
-                <li>- Metodologia moderna e aplicável {<Check/>}</li>
-                <li>- Contato direto com a equipe de instrutores {<Check/>}</li>
-                <li>- Reembolso em até 7 dias sem burocracia {<Check/>}</li>
+                <li>• Preparação completa para o manejo de ferramentas {<Check/>}</li>
+                <li>• Várias aplicações práticas com feedback {<Check/>}</li>
+                <li>• Suporte completo para dúvidas {<Check/>}</li>
+                <li>• Metodologia moderna e aplicável {<Check/>}</li>
+                <li>• Contato direto com a equipe de instrutores {<Check/>}</li>
+                <li>• Reembolso em até 7 dias sem burocracia {<Check/>}</li>
               </ul> 
             </LeftInfos>
             <RightInfos isVisible={isVisible}>
@@ -105,6 +107,9 @@ const LeftInfos = styled.div`
     &:hover {
     transform: scale(1.1);
     cursor: pointer;
+    @media (max-width: 1200px) {
+    transform: scale(1);
+  }
   }
   }
   h2{
