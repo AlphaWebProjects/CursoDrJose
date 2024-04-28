@@ -34,7 +34,7 @@ function Home() {
       return
     }
     const totalHeight = document.body.scrollHeight;
-    const scrollToHeight = totalHeight * 0.5;
+    const scrollToHeight = totalHeight * 0.27;
     window.scrollTo({ top: scrollToHeight, behavior: 'smooth' });
   };
 

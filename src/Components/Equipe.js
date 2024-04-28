@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import felipe from '../img/felipe.png';
+import felipe from '../img/FelipeFoto.jpeg';
 import gabriel from '../img/gabriel.png';
 import jose from '../img/jose.png';
 function Equipe() {
@@ -62,6 +62,7 @@ const Members= styled.div`
   img {
     height: 70%;
     width: 80%;
+    border-radius:20px;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
     &:hover {
     transform: scale(1.1);
@@ -73,12 +74,13 @@ const Members= styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width:20%
-
+    width:20%;
+    border-radius:20px
   }
   p{
     text-align:center;
     font-size: 15px;
+    margin-bottom: 50px;
   }
   @media (max-width: 1200px) {
     flex-direction: column;

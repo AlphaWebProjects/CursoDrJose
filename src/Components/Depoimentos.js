@@ -6,9 +6,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import aluno from '../img/aluno-simva.jpg'
-import aluno2 from '../img/aluno-simva2.jpg'
-
+import doc from '../img/doc.jpg';
+import GuilhermeFranca from '../img/GuilhermeFranca.jpeg'
+import MarcelaRahal from '../img/MarcelaRahal.jpeg'
+import Isabele from '../img/Isabele.jpeg'
+import GuilhermeRossi from '../img/GuilhermeRossi.jpeg'
+import Caroline from '../img/Caroline.png'
 function Depoimentos() {
 
   const [isVisible, setIsVisible] = useState(false);
@@ -57,32 +60,123 @@ function Depoimentos() {
 
             <StyledSwiperSlide>
               <div>
-                <img src={aluno2} width="150" height="150" alt="Logo" />
-                <h2>Isabelle Boud`hors</h2>
-                <h3>Estudante de Medicina</h3>
-                <p> "Treinamentos como esse são essenciais para todos. Apreender a lidar com os mais diversos cenários que envolvem o manejo da via área e ter confiança no uso das drogas é de fundamental importância. Apreendi no SIMVA o que nunca tinha visto na faculdade. Obrigado a toda equipe!"</p>
+              <div style={{ width: '250px', height: '250px'}}>
+                <img src={MarcelaRahal} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} alt="Logo" />
               </div>
-            </StyledSwiperSlide>
-
-            <StyledSwiperSlide>
-              <div>
-                <img src='https://static1.s123-cdn-static-a.com/uploads/8125915/400_649da2726cc04.jpg' width="150" height="150" alt="Logo" />
-                <h2>Caroline Giacomelli</h2>
-                <h3>Médica</h3>
-                <p>"Excelente, foi muito produtivo. É de suma importância sabermos de todo o processo envolvido no manejo da via aérea. O treinamento do SIMVA me trouxe uma outra visão sobre o cuidado da via aérea e muito mais segurança a partir de agora."
+                <h2>Marcela Rahal</h2>
+                <h3>Estudante de medicina</h3>
+                <p>"Um dos maiores medos do estudante de medicina prestes a se formar é o de, no momento de um plantão, não conseguir oferecer um manejo adequado de vias aéreas ao seu paciente. 
+                  Posso dizer com propriedade que esse é o grande diferencial do Simva. Profissionais extremamente capacitados que trazem, de forma prática e didática, 
+                  um treinamento cheio de conteúdo e macetes, a fim de que o recém formado consiga conduzir a situação de forma muito mais organizada e correta. 
+                  Foi, sem dúvidas, um dos melhores cursos que já participei, se não o melhor. Indico de olhos fechados. Tenho certeza de que, assim como foi crucial para minha formação, também será para a de muitos futuros médicos."
                   </p>
               </div>
             </StyledSwiperSlide>
 
             <StyledSwiperSlide>
               <div>
-                <img src={aluno} width="150" height="150" alt="Logo" />
-                <h2>Guilherme Dossi</h2>
-                <h3>Médico</h3>
-                <p> "Toda equipe esta de parabéns. Foi muito produtivo, sai pronto para manejar uma via aérea e principalmente utilizar as drogas para o cuidado com o paciente. Indicarei para todo mundo com certeza."</p>
+              <div style={{ width: '250px', height: '250px'}}>
+                <img src={GuilhermeFranca} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} alt="Logo" />
+              </div>
+                <h2>Guilherme Aguiar França</h2>
+                <h3>Estudante de medicina</h3>
+                <p> "Os caminhos para aprimorar as técnicas aprendidas na faculdade podem ser árduos. E se imaginar um dia aplicando toda teoria estudada em livros, na prática, em um paciente de verdade, que muitas vezes depende de uma boa conduta para ter melhores desfechos, é ainda mais desafiador.
+                        Porém, ter um espaço controlado para treinar, aperfeiçoar e relembrar pontos importantes do manejo de vias aéreas em pacientes críticos é um passo extremamente importante e é exatamente o que é oferecido pelo curso SIMVA. 
+                        Meu profundo agradecimento pelos ensinamentos oferecidos pelos docentes, todos muito capazes e empenhados com nosso aprendizado!"
+                </p>
               </div>
             </StyledSwiperSlide>
 
+            <StyledSwiperSlide>
+              <div>
+              <div style={{ width: '250px', height: '250px'}}>
+                <img src={Isabele} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} alt="Logo" />
+              </div>
+                <h2>Isabelle Boud'hors</h2>
+                <h3>Estudante de medicina</h3>
+                <p> "Treinamentos como esse são essenciais para
+                        todos. Apreender a lidar com os mais
+                        diversos cenários que envolvem o manejo da
+                        via e ter confiança no uso das drogas é de
+                        fundamental importância. Apreendi no
+                        SIMVA o que nunca tinha visto na faculdade.
+                        Obrigado a toda equipe."</p>
+              </div>
+            </StyledSwiperSlide>
+
+            <StyledSwiperSlide>
+              <div>
+              <div style={{ width: '250px', height: '250px'}}>
+                <img src={GuilhermeRossi} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} alt="Logo" />
+              </div>
+                <h2>Guilherme Rossi</h2>
+                <h3>Médico</h3>
+                <p>"Este curso mudou completamente minha prática clínica! 
+                  Aprendi técnicas avançadas de manejo da via aérea que me deram muito mais confiança ao lidar com situações críticas. Recomendo a todos os colegas!"
+                </p>
+              </div>
+            </StyledSwiperSlide>
+
+            <StyledSwiperSlide>
+              <div>
+              <div style={{ width: '250px', height: '250px'}}>
+                <img src={Caroline} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} alt="Logo" />
+              </div>
+                <h2>Carolina Giacomelli</h2>
+                <h3>Médica</h3>
+                <p> "Excelente, foi muito produtivo. É de suma importância sabermos de todo o processo envolvido no manejo da via aérea. 
+                  O treinamento do SIMVA me trouxe uma outra visão sobre o cuidado da via aérea e muito mais segurança a partir de agora"</p>
+              </div>
+            </StyledSwiperSlide>
+{/* 
+            <StyledSwiperSlide>
+              <div>
+              <div style={{ width: '250px', height: '250px'}}>
+                <img src={doc} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} alt="Logo" />
+              </div>
+                <h2>Pedro Rodrigues</h2>
+                <h3>Estudante de medicina pela USP</h3>
+                <p> "O curso 'Manejo da Via Aérea' superou todas as minhas expectativas! Os instrutores são extremamente qualificados e as aulas são práticas e envolventes. 
+                  Saí do curso me sentindo muito mais preparada para lidar com emergências médicas."</p>
+              </div>
+            </StyledSwiperSlide>
+
+            <StyledSwiperSlide>
+              <div>
+              <div style={{ width: '250px', height: '250px'}}>
+                <img src={doc} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} alt="Logo" />
+              </div>
+                <h2>João Carlos</h2>
+                <h3>Estudante de medicina pela USP</h3>
+                <p>"Este curso mudou completamente minha prática clínica! 
+                  Aprendi técnicas avançadas de manejo da via aérea que me deram muito mais confiança ao lidar com situações críticas. Recomendo a todos os colegas!"
+                </p>
+              </div>
+            </StyledSwiperSlide>
+
+            <StyledSwiperSlide>
+              <div>
+              <div style={{ width: '250px', height: '250px'}}>
+                <img src={doc} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} alt="Logo" />
+              </div>
+                <h2>Fabrício Nunes</h2>
+                <h3>Estudante de medicina pela USP</h3>
+                <p> "Como estudante de medicina, este curso foi essencial para minha formação. Aprendi não apenas as habilidades técnicas necessárias para lidar com a via aérea, 
+                  mas também ganhei uma compreensão mais profunda da fisiologia e das melhores práticas. Sem dúvida, um investimento valioso em minha carreira."</p>
+              </div>
+            </StyledSwiperSlide>
+
+            <StyledSwiperSlide>
+              <div>
+              <div style={{ width: '250px', height: '250px'}}>
+                <img src={doc} style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }} alt="Logo" />
+              </div>
+                <h2>Pedro Rodrigues</h2>
+                <h3>Estudante de medicina pela USP</h3>
+                <p> "O curso 'Manejo da Via Aérea' superou todas as minhas expectativas! Os instrutores são extremamente qualificados e as aulas são práticas e envolventes. 
+                  Saí do curso me sentindo muito mais preparada para lidar com emergências médicas."</p>
+              </div>
+            </StyledSwiperSlide> */}
 
           </Swiper>
             
@@ -127,9 +221,9 @@ align-items: center;
 justify-content: center;
 
 img{
-  width: 40%;
-  height: 40%;
-  border-radius: 25%;
+  width: 23vh;
+  height: 18vh;
+  border-radius: 20px;
   box-shadow: #158A7A 0px 3px 10px;
   @media (max-width: 1200px) {
     width: 80%;
@@ -139,10 +233,10 @@ img{
 div{
     height: 90% !important;
     text-align: center !important;
-    max-width: 70%;
-    @media (max-width: 1200px) {
-    max-width: 95% !important;
-  }
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
 &:hover {
     transform: scale(1.03);
