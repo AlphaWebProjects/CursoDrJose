@@ -36,7 +36,7 @@ export default function SignUp ({changeAuth}) {
             neighborhood: form.neighborhood,
             cep: form.cep,
             city: form.city,
-            state: form.state,
+            uf: form.uf,
         }
 
         try {           
@@ -179,8 +179,8 @@ export default function SignUp ({changeAuth}) {
                     <Input 
                         label="Estado"     
                         type="text" 
-                        name={"city"} 
-                        value={form.state} 
+                        name={"uf"} 
+                        value={form.uf} 
                         onChange={handleForm}
                         width="80%"
                         disabled={isLoading}
