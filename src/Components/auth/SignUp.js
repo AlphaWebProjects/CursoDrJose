@@ -31,7 +31,12 @@ export default function SignUp ({changeAuth}) {
             passwordVerify: form.passwordVerify,
             cpf: form.cpf,
             phoneNumber: form.phoneNumber,
-            birthday: form.birthday
+            birthday: form.birthday,
+            adress: form.adress,
+            neighborhood: form.neighborhood,
+            cep: form.cep,
+            city: form.city,
+            state: form.state,
         }
 
         try {           
@@ -60,7 +65,7 @@ export default function SignUp ({changeAuth}) {
             {/* <img src={logo} alt="" onClick={() => setIsLoading(!isLoading)}/> */}
 
             <UserActionsContainer isLoading={isLoading}>
-
+            <Column>
                 <InputWrapper width={"100%"}>
                     <Input 
                         label="Email"     
@@ -72,6 +77,7 @@ export default function SignUp ({changeAuth}) {
                         disabled={isLoading}
                     />
                 </InputWrapper>
+
                 <InputWrapper width={"100%"}>
                     <Input 
                         label="Nome"     
@@ -83,6 +89,7 @@ export default function SignUp ({changeAuth}) {
                         disabled={isLoading}
                     />
                 </InputWrapper>
+
                 <InputWrapper width={"100%"}>
                     <Input 
                         label="Senha"     
@@ -94,6 +101,7 @@ export default function SignUp ({changeAuth}) {
                         disabled={isLoading}
                     />
                 </InputWrapper>
+
                 <InputWrapper width={"100%"}>
                     <Input 
                         label="Digite sua senha novamente"     
@@ -129,7 +137,8 @@ export default function SignUp ({changeAuth}) {
                         disabled={isLoading}
                     />
                 </InputWrapper>
-
+            </Column>
+            <Column> 
                 <InputWrapper width={"100%"}>
                     <Input 
                         label="Numero do seu celular"     
@@ -142,6 +151,67 @@ export default function SignUp ({changeAuth}) {
                     />
                 </InputWrapper>
 
+                <InputWrapper width={"100%"}>
+                    <Input 
+                        label="Endereço"     
+                        type="text" 
+                        name={"adress"} 
+                        value={form.adress} 
+                        onChange={handleForm}
+                        width="80%"
+                        disabled={isLoading}
+                    />
+                </InputWrapper>
+
+                <InputWrapper width={"100%"}>
+                    <Input 
+                        label="Bairro"     
+                        type="text" 
+                        name={"neighborhood"} 
+                        value={form.neighborhood} 
+                        onChange={handleForm}
+                        width="80%"
+                        disabled={isLoading}
+                    />
+                </InputWrapper>
+
+                <InputWrapper width={"100%"}>
+                    <Input 
+                        label="Estado"     
+                        type="text" 
+                        name={"city"} 
+                        value={form.state} 
+                        onChange={handleForm}
+                        width="80%"
+                        disabled={isLoading}
+                    />
+                </InputWrapper>
+
+                <InputWrapper width={"100%"}>
+                    <Input 
+                        label="Cidade"     
+                        type="text" 
+                        name={"city"} 
+                        value={form.city} 
+                        onChange={handleForm}
+                        width="80%"
+                        disabled={isLoading}
+                    />
+                </InputWrapper>
+
+                <InputWrapper width={"100%"}>
+                    <Input 
+                        label="CEP"     
+                        type="text" 
+                        name={"cep"} 
+                        value={form.cep} 
+                        onChange={handleForm}
+                        width="80%"
+                        disabled={isLoading}
+                    />
+                </InputWrapper>
+
+                </Column>
                 <ButtonWrapper width={"100%"}>
                     <Button onClick={() => SubmitForms()} width={"80%"} height={"55px"}>{"Criar"}</Button>
                     <ChangeAuthButton onClick={changeAuth}>Ja tenho um Cadastro</ChangeAuthButton>
@@ -157,7 +227,7 @@ export default function SignUp ({changeAuth}) {
 
 const Container = styled.div`
     width: 490px;
-    height: 840px;
+    height: 560px;
     background-color: #FFFFFF;
     box-shadow: 0 8px 50px 0 #00000038;
     border-radius: 10px;
@@ -167,6 +237,7 @@ const Container = styled.div`
     padding-top: 5vh;
     row-gap: 5vh;
     position: relative;
+    margin-bottom: 30px;
     img {
         max-height: 150px;
         max-width: 60%;
@@ -176,15 +247,23 @@ const Container = styled.div`
         width: 100%;
     }
 `
+
 const UserActionsContainer = styled.div`
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     row-gap: 3vh; 
     opacity: ${props => props.isLoading ? ("0.2"):("1")};
     pointer-events: ${props => props.isLoading ? ("none"):("initial")};
 `
+
+const Column = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 50%; // Cada coluna ocupará metade da largura
+`
+
 export const ChangeAuthButton = styled.div`
     display: flex;
     align-items: center;
