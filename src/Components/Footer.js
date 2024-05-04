@@ -31,7 +31,7 @@ export default function Footer(){
         <TextColumn>
           <h4>{"Nosso Site"}</h4>
           <h5 onClick={() => handleItemClick({position: 0})}>{"Página Inicial"}</h5>
-          <h5 onClick={() => handleItemClick({position: 890})}>{"Sobre nós"}</h5>
+          <h5 onClick={() => handleItemClick({position: 890})}>{"Nosso objetivo"}</h5>
           <h5 onClick={() => handleItemClick({position: 1800})}>{"Sobre o curso"}</h5>
           <h5 onClick={() => handleItemClick({position: 2700})}>{"Equipe"}</h5>
           <h5 onClick={() => handleItemClick({position: 3750})}>{"Comentários"}</h5>
@@ -133,10 +133,15 @@ background-color: white !important;
 border-radius: 15px;
 padding: 2vh;
 margin: 0 !important;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+transition: transform 0.3s ease-in-out;
   img {
     height: 15vh;
     width: 42vh;
     cursor: pointer;
+  }
+  &:hover {
+    transform: scale(1.03);
   }
   @media (max-width: 850px) {
     display: none;
