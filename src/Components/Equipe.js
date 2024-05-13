@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import felipe from '../img/FelipeFoto.jpeg';
-import gabriel from '../img/gabriel.png';
+import gabriel from '../img/gabriel.jpeg';
 import jose from '../img/jose.png';
 function Equipe() {
   const [isVisible, setIsVisible] = useState(false);
