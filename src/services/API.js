@@ -12,11 +12,23 @@ function LogoutSession(token) {
     console.log(token)
     return axios.delete(`${BASE_URL}/auth/logout`, {headers: { Authorization: `Bearer ${token}`}});
 }
+function CreatePayment({ token, cupom }) {
+    return axios.post(
+        `${BASE_URL}/payment?cupom=${cupom || "none"}`,
+        {},
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    );
+}
 
 const api = {
     CreateSession,
     LogoutSession,
-    CreateUser
+    CreateUser,
+    CreatePayment
 };
 
 export default api;
