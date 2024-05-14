@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import felipe from '../img/FelipeFoto.jpeg';
-import gabriel from '../img/gabriel.png';
+import gabriel from '../img/gabriel.jpeg';
 import jose from '../img/jose.png';
 function Equipe() {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,6 +64,7 @@ const Members= styled.div`
     width: 80%;
     border-radius:20px;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     &:hover {
     transform: scale(1.1);
     cursor: pointer;

@@ -92,10 +92,12 @@ const LeftInfos = styled.div`
   ul{
     padding: 4vh 5vh;
     border: 3px solid #158A7A;
-    height: auto;
     border-radius: 13px;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
     list-style-type: disc !important;
+    overflow-y: scroll;
+    scrollbar-width: thin; /* Define a largura da barra de rolagem */
+    scrollbar-color: #158A7A transparent; /* Define a cor da barra de rolagem e do fundo */
     &:hover {
     transform: scale(1.015);
     cursor: pointer;
@@ -103,8 +105,16 @@ const LeftInfos = styled.div`
     border: 1px solid #158A7A;
   }
   }
+  ul::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem para navegadores baseados em WebKit */
+  }
+
+  ul::-webkit-scrollbar-thumb {
+      background-color: #158A7A; /* Cor do polegar (a parte que você arrasta) */
+      border-radius: 4px; /* Raio de borda do polegar */
+  }
   li {
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 20px;
     display: flex;
     justify-content: space-between;

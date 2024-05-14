@@ -238,8 +238,11 @@ div{
     flex-direction: column;
     justify-content: center;
   }
+  p{
+    width: 80%;
+  }
 &:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
     cursor: pointer;
   }
   @media (max-width: 1200px) {

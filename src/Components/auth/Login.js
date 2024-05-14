@@ -8,7 +8,7 @@ import { Spinner } from "../../common/spinner/Spinner"
 import UserContext from "../../context/UserContext.js"
 import { useCustomForm } from "../../hooks/useCustomForms"
 import useNavigateAndMoveUp from "../../hooks/useNavigateAndMoveUp"
-import api from '../../services/API'
+import api from "../../services/API"
 import { ButtonWrapper } from "./ButtonWrapper"
 import { InputWrapper } from "./InputWrapper"
 import { ChangeAuthButton } from "./SignUp"
@@ -37,7 +37,7 @@ export default function Login ({changeAuth}) {
             const response = await api.CreateSession(body)
 
             if( response.status === 200){
-
+                
                 setUserData(response.data)
                 toast.dark("Login realizado com sucesso!")
                 setIsLoading(false)
@@ -116,6 +116,7 @@ const Container = styled.div`
         width: 100%;
     }
 `
+
 const UserActionsContainer = styled.div`
     width: 100%;
     height: auto;

@@ -85,11 +85,22 @@ const LeftInfos = styled.div`
     height: auto;
     border-radius: 13px;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    overflow-y: scroll;
+    scrollbar-width: thin; 
+    scrollbar-color: #158A7A transparent; 
     &:hover {
     transform: scale(1.015);
     cursor: pointer;
     box-shadow: #158A7A 0px 5px 15px;
   }
+  }
+  ul::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem para navegadores baseados em WebKit */
+  }
+
+  ul::-webkit-scrollbar-thumb {
+      background-color: #158A7A; /* Cor do polegar (a parte que você arrasta) */
+      border-radius: 4px; /* Raio de borda do polegar */
   }
   li {
     margin-top: 10px;
@@ -114,12 +125,12 @@ const LeftInfos = styled.div`
   }
   h2{
     font-size: 32px !important;
-    border-top: 3.5px solid black;
-    border-bottom: 3.5px solid black;
+    border-top: 3.5px solid  #158A7A;
+    border-bottom: 3.5px solid  #158A7A;
     box-shadow: #222726 0px 0px 10px;
     padding: 1.5vh 3vh;
     border-radius: 10px;
-
+    color: #158A7A
   }
   @media (max-width: 1200px) {
     height: auto;
