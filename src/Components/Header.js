@@ -21,6 +21,7 @@ function Header() {
       setUserData({})
       window.location.reload()
     } catch (error) {
+      setUserData({})
       console.log(error)
     }
   }

@@ -1,10 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaCheckCircle } from "react-icons/fa";
 import styled from 'styled-components';
 import doctor2 from '../img/FotosAlunos1.jpeg';
+import UserContext from '../context/UserContext';
+import useNavigateAndMoveUp from '../hooks/useNavigateAndMoveUp';
 
 function Pagamento() {
   const [isVisible, setIsVisible] = useState(false);
+  const { userData } = useContext(UserContext);
+  const navigate = useNavigateAndMoveUp()
+  
+  function handlePayment(){
+    if(!userData?.token){
+      navigate({locate: "auth"})
+      return
+    }
+    navigate({locate: "payment"})
+    return
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +57,7 @@ function Pagamento() {
                 <p>De <b>R$ 1299,99</b> por até</p>
                 <h2>12x de <br></br>R$ 87,50</h2>
                 <p>ou R$ 900,00 à vista</p>
-                <Button>Quero garantir minha vaga!</Button>
+                <Button onClick={handlePayment}>Quero garantir minha vaga!</Button>
               </div>
             </RightInfos>
           </InfoContainer>
