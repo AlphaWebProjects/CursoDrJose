@@ -6,6 +6,8 @@ import Auth from './Pages/Auth';
 import LandingPage from './Pages/LandingPage';
 import NotFound from './Pages/NotFound';
 import { UserProvider } from './context/UserContext';
+import Payment from './Pages/Payment';
+import Thanks from './Pages/Thanks';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/thanks" element={<Thanks />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
