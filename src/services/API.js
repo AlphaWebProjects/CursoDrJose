@@ -24,11 +24,16 @@ function CreatePayment({ token, cupom }) {
     );
 }
 
+function VerificaCep(cep){
+    return axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+}
+
 const api = {
     CreateSession,
     LogoutSession,
     CreateUser,
-    CreatePayment
+    CreatePayment,
+    VerificaCep
 };
 
 export default api;
