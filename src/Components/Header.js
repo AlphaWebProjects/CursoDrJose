@@ -2,8 +2,28 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../img/logoSmall.png';
+import useUserInfo from '../hooks/useUserInfo';
+import UserContext from '../context/UserContext';
+import setUserData from '../context/UserContext';
+import api from '../services/API'
+import { useContext } from "react"
 function Header() {
   const [activeHeader, setActiveHeader] = useState(1);
+  const { userData } = useContext(UserContext);
+  const { setUserData } = useContext(UserContext);
+  const {name,email} = useUserInfo()
+    console.log(useUserInfo())
+    console.log(userData)
+ 
+  async function handleLogout(){
+    try {
+      await api.LogoutSession(userData.token)
+      setUserData({})
+      window.location.reload()
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleHeaderClick = (index) => {
     setActiveHeader(index);
@@ -41,13 +61,22 @@ function Header() {
         <StyledH2 active={activeHeader === 6} onClick={() => handleHeaderClick(6)}>Oferta</StyledH2>
         {/* <Indicator activeHeader={activeHeader} /> */}
       </MiddleHeader>
-        <StyledLoginButton as={Link} to="/auth">Login</StyledLoginButton>
+      {userData.token ? (
+        <LogOutContainer>
+            <span>Olá, { userData.name }</span>
+            <StyledLogoutButton onClick={handleLogout}>Sair</StyledLogoutButton>
+        </LogOutContainer>
+    ) : (
+        <Link to="/auth">
+            <StyledLoginButton>Login</StyledLoginButton>
+        </Link>
+    )}
     </HeaderContainer>
   );
 }
 
 const HeaderContainer = styled.div`
-z-index: 2;
+  z-index: 2;
   width: 100%;
   background-color: rgb(255,255,255,0.9);
   position:fixed;
@@ -64,6 +93,16 @@ z-index: 2;
   @media (max-width: 1200px) {
     display: none;
   }
+`;
+const LogOutContainer = styled.div`
+display:flex;
+align-items:center;
+justify-content:space-around;
+width:10%;
+span{
+  font-size: 16px;
+  font-weight: 500;
+}
 `;
 
 const MiddleHeader = styled.div`
@@ -104,6 +143,27 @@ const StyledLoginButton = styled.h2`
   color: #FFFFFF;
   font-size: 16px;
   background-color: #158A7A;
+  text-decoration: none;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Adicionando transição para a mudança de escala */
+  
+  &:hover {
+    transform: scale(1.02); /* Aumenta em 5% ao passar o mouse */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+`;
+
+const StyledLogoutButton = styled.h2`
+  cursor: pointer;
+  min-width: 80px;
+  height: 40px;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  background-color: red;
   text-decoration: none;
   border-radius: 20px;
   display: flex;
