@@ -7,7 +7,7 @@ import Input from "../../common/form/Input"
 import { Spinner } from "../../common/spinner/Spinner"
 import UserContext from "../../context/UserContext"
 import { useCustomForm } from "../../hooks/useCustomForms"
-import api from "../../Services/API"
+import api from "../../services/API"
 import { ButtonWrapper } from "./ButtonWrapper"
 import { InputWrapper } from "./InputWrapper"
 
@@ -28,22 +28,24 @@ export default function SignUp ({changeAuth}) {
             email: form.email,
             name: form.name,
             password: form.password,
-            passwordVerify: form.passwordVerify,
             cpf: form.cpf,
-            phoneNumber: form.phoneNumber,
+            phone: form.phoneNumber,
             birthday: form.birthday,
-            adress: form.adress,
+            address: form.adress,
             neighborhood: form.neighborhood,
             cep: form.cep,
             city: form.city,
             uf: form.uf,
+            role:'USER'
         }
-
+        console.log(body)
+        if(form.password !== form.passwordVerify){
+            setIsLoading(false)
+            return toast.error("As senhas não são iguais")
+        }
         try {           
             const response = await api.CreateUser(body)
-
             if( response.status === 201){
-
                 setUserData(response.data)
                 toast.dark("Cadastro realizado com sucesso!")
                 setIsLoading(false)
