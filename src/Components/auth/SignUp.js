@@ -112,7 +112,7 @@ export default function SignUp ({changeAuth}) {
             neighborhood: form.neighborhood,
             cep: form.cep,
             city: form.city,
-            uf: form.uf,
+            uf: form.uf.toUpperCase(),
             role:'USER'
         }
         console.log(body)
