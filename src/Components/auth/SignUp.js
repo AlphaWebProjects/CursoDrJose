@@ -7,7 +7,7 @@ import Input from "../../common/form/Input"
 import { Spinner } from "../../common/spinner/Spinner"
 import UserContext from "../../context/UserContext"
 import { useCustomForm } from "../../hooks/useCustomForms"
-import api from "../../Services/API"
+import api from '../../services/API'
 import { ButtonWrapper } from "./ButtonWrapper"
 import { InputWrapper } from "./InputWrapper"
 
