@@ -13,10 +13,15 @@ function LogoutSession(token) {
     return axios.delete(`${BASE_URL}/auth/logout`, {headers: { Authorization: `Bearer ${token}`}});
 }
 
+function VerificaCep(cep){
+    return axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+}
+
 const api = {
     CreateSession,
     LogoutSession,
-    CreateUser
+    CreateUser,
+    VerificaCep
 };
 
 export default api;

@@ -17,6 +17,83 @@ export default function SignUp ({changeAuth}) {
     const { setUserData } = useContext(UserContext);
     const [isLoading, setIsLoading] = useState(false)
 
+    function isValidEmail(email) {
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function isValidPhone(phone) {
+        const str = phone.toString();
+        console.log(str, 'numero de telefone em string')
+        const phoneRegex = /^\d{2}(?:9)?\d{8}$/;
+        return phoneRegex.test(str);
+    }
+
+    const cpfValidator = (value) => {
+        const cleanCPF = value.replace(/[^\d]/g, '');
+    
+        if (cleanCPF.length !== 11 || /^(\d)\1*$/.test(cleanCPF)) {
+            return false;
+        }
+    
+        let sum = 0;
+        let remainder;
+    
+        for (let i = 1; i <= 9; i++) {
+            sum += parseInt(cleanCPF.substring(i - 1, i)) * (11 - i);
+        }
+        remainder = (sum * 10) % 11;
+    
+        if ((remainder === 10) || (remainder === 11)) remainder = 0;
+        if (remainder !== parseInt(cleanCPF.substring(9, 10))) {
+            return false;
+        }
+    
+        sum = 0;
+        for (let i = 1; i <= 10; i++) {
+            sum += parseInt(cleanCPF.substring(i - 1, i)) * (12 - i);
+        }
+        remainder = (sum * 10) % 11;
+    
+        if ((remainder === 10) || (remainder === 11)) remainder = 0;
+        if (remainder !== parseInt(cleanCPF.substring(10, 11))) {
+            return false;
+        }
+    
+        return true;
+    };
+
+    const estados = [
+        "AC",
+        "AL",
+        "AP",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MT",
+        "MS",
+        "MG",
+        "PA",
+        "PB",
+        "PR",
+        "PE",
+        "PI",
+        "RJ",
+        "RN",
+        "RS",
+        "RO",
+        "RR",
+        "SC",
+        "SP",
+        "SE",
+        "TO"
+    ];
+
     async function SubmitForms(){
         setIsLoading(true)
         if (!form.email|| !form.password){
@@ -39,11 +116,40 @@ export default function SignUp ({changeAuth}) {
             role:'USER'
         }
         console.log(body)
+
         if(form.password !== form.passwordVerify){
             setIsLoading(false)
             return toast.error("As senhas não são iguais")
         }
-        try {           
+
+        const verificaCPF = cpfValidator(form.cpf);
+            console.log(verificaCPF, 'verifica cpf')
+            if(verificaCPF === false){
+                setIsLoading(false);
+                return toast.error('Insira um CPF válido')
+            }
+
+            const verificaEmail = isValidEmail(form.email);
+            if(verificaEmail === false){
+                setIsLoading(false);
+                return toast.error('Insira um email válido')
+            }
+
+            const verificaCelular = isValidPhone(form.phoneNumber)
+            if(verificaCelular === false){
+                setIsLoading(false);
+                return toast.error('Insira um número de celular válido')
+            }
+
+        try {   
+
+            if(form.cep === undefined || form.cep === ''){
+                setIsLoading(false)
+                return toast.error('Insira o seu CEP')
+            }
+            const verificaCEP = await api.VerificaCep(form.cep);
+            console.log('verifica cep', verificaCEP.status)
+
             const response = await api.CreateUser(body)
             if( response.status === 201){
                 setUserData(response.data)
@@ -54,9 +160,13 @@ export default function SignUp ({changeAuth}) {
             }
 
         } catch (error) {
+            if(error.config.url === `https://viacep.com.br/ws/${form.cep}/json/`){
+                setIsLoading(false)
+                return toast.error("Insira um CEP válido")
+            }
             console.log(error)
             setIsLoading(false)
-            toast.error("Verifique os valores !!")
+            toast.error("Verifique os valores!")
             return
         }
     }
@@ -71,7 +181,7 @@ export default function SignUp ({changeAuth}) {
                 <InputWrapper width={"100%"}>
                     <Input 
                         label="Email"     
-                        type="text" 
+                        type="email" 
                         name={"email"} 
                         value={form.email} 
                         onChange={handleForm}
@@ -143,8 +253,9 @@ export default function SignUp ({changeAuth}) {
             <Column> 
                 <InputWrapper width={"100%"}>
                     <Input 
-                        label="Numero do seu celular"     
-                        type="text" 
+                        label="Celular com DDD"     
+                        placeholder=''
+                        type="number" 
                         name={"phoneNumber"} 
                         value={form.phoneNumber} 
                         onChange={handleForm}
@@ -179,7 +290,8 @@ export default function SignUp ({changeAuth}) {
 
                 <InputWrapper width={"100%"}>
                     <Input 
-                        label="Estado"     
+                        label="Estado"
+                        placeholder='Sigla (UF)'     
                         type="text" 
                         name={"uf"} 
                         value={form.uf} 
