@@ -1,11 +1,80 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import api from '../services/API';
+import { toast } from 'react-toastify';
+import UserContext from '../context/UserContext';
 
 export default function Payment() {
+    //const base64pdfTest = "JVBERi0xLjQKJeLjz9MKMyAwIG9iago8PC9UeXBlL1hPYmplY3QvU3VidHlwZS9JbWFnZS9XaWR0aCA1NzgvSGVpZ2h0IDM4NC9GaWx0ZXIvRENURGVjb2RlL0NvbG9yU3BhY2U";
     const [cupom, setCupom] = useState("");
+    const { userData } = useContext(UserContext);
 
     function handleCupom({ target: { value } }) {
         setCupom(value);
+    }
+
+    const base64ToBlob = (base64, contentType = '', sliceSize = 512) => {
+        const byteCharacters = atob(base64);
+        const byteArrays = [];
+    
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+          const slice = byteCharacters.slice(offset, offset + sliceSize);
+          const byteNumbers = new Array(slice.length);
+          for (let i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+          byteArrays.push(byteArray);
+        }
+    
+        const blob = new Blob(byteArrays, { type: contentType });
+        return blob;
+    };
+
+    const downloadAutomatically = (base64pdfTest) => {
+        const blob = base64ToBlob(base64pdfTest, 'application/pdf');
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'file.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+    };
+
+    const downloadManually = (base64pdfTest) => {
+        const blob = base64ToBlob(base64pdfTest, 'application/pdf');
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'file.pdf';
+        a.textContent = 'Download PDF';
+        document.body.appendChild(a);
+        // A linha abaixo deve ser comentada para deixar o link visível para o usuário clicar manualmente
+        // a.click();
+        // a.remove();
+        // URL.revokeObjectURL(url);
+    };
+
+    async function handlePayment(){
+        
+
+
+        try {        
+            const response = await api.CreatePayment({token: userData.token, cupom});
+            if( response.status === 201){
+                console.log(response.data);
+                downloadAutomatically(response.data.pdfBoleto)
+                toast.dark("Boleto gerado com sucesso!");
+                return;
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error("Verifique os valores !!");
+            return;
+        }
+ 
     }
 
     return (
@@ -38,7 +107,7 @@ export default function Payment() {
                 </SubDataContainer>
                  
                 <ButtonWrapper>
-                    <StyledButton onClick={() => {}}>{"QUERO GARANTIR MINHA VAGA"}</StyledButton>
+                    <StyledButton onClick={handlePayment}>{"QUERO GARANTIR MINHA VAGA"}</StyledButton>
                 </ButtonWrapper>
             </CourseContainer>
         </Container>
