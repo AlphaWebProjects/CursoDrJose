@@ -60,7 +60,7 @@ export async function PaymentSection(){
 
   function setByStatus(status){
 
-    console.log(status)
+
 
     if(status === 'all'){
       setPaymentsArrState(paymentsArr);
@@ -83,7 +83,6 @@ export async function PaymentSection(){
 
     const dataFormatada = format(parseISO(date), 'dd/MM/yyyy');
 
-    console.log(dataFormatada, date)
 
     const filtered = paymentsArr.filter(p => p.date === dataFormatada)
 

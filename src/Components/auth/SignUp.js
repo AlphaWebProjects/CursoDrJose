@@ -123,7 +123,7 @@ export default function SignUp ({changeAuth}) {
             uf: form.uf.toUpperCase(),
             role:'USER'
         }
-        console.log(body)
+
 
         if(form.password !== form.passwordVerify){
             setIsLoading(false)
@@ -131,7 +131,7 @@ export default function SignUp ({changeAuth}) {
         }
 
         const verificaCPF = cpfValidator(form.cpf);
-            console.log(verificaCPF, 'verifica cpf')
+
             if(verificaCPF === false){
                 setIsLoading(false);
                 return toast.error('Insira um CPF válido')
@@ -162,7 +162,7 @@ export default function SignUp ({changeAuth}) {
                 return toast.error('Insira o seu CEP')
             }
             const verificaCEP = await api.VerificaCep(form.cep);
-            console.log('verifica cep', verificaCEP.status)
+
 
             const response = await api.CreateUser(body)
             if( response.status === 201){

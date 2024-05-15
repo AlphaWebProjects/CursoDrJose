@@ -9,7 +9,7 @@ function CreateUser(body) {
     return axios.post(`${BASE_URL}/auth/sign-up`, body);
 }
 function LogoutSession(token) {
-    console.log(token)
+
     return axios.delete(`${BASE_URL}/auth/logout`, {headers: { Authorization: `Bearer ${token}`}});
 }
 function CreatePayment({ token, cupom }) {

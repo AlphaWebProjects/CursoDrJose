@@ -20,7 +20,7 @@ export default function Payment() {
         try {
             const response = await api.CreatePayment({ token: userData.token, cupom });
             if (response.status === 201) {
-                console.log(response.data);
+
                 navigate("/thanks", { state: { paymentData: response.data } });
                 toast.dark("Boleto gerado com sucesso!");
             } else {
