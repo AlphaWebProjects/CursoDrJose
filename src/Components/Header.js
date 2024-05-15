@@ -14,7 +14,7 @@ function Header() {
   const {name,email} = useUserInfo()
     console.log(useUserInfo())
     console.log(userData)
- 
+
   async function handleLogout(){
     try {
       await api.LogoutSession(userData.token)
@@ -64,7 +64,7 @@ function Header() {
       </MiddleHeader>
       {userData.token ? (
         <LogOutContainer>
-            <span>Olá, { userData.name }</span>
+            <span>Olá, { userData.name.split(" ")[0] }</span>
             <StyledLogoutButton onClick={handleLogout}>Sair</StyledLogoutButton>
         </LogOutContainer>
     ) : (

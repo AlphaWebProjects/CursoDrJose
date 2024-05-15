@@ -25,18 +25,25 @@ export default function SignUp ({changeAuth}) {
 
     function isValidPhone(phone) {
         const str = phone.toString();
-        console.log(str, 'numero de telefone em string')
+
         const phoneRegex = /^\d{2}(?:9)?\d{8}$/;
         return phoneRegex.test(str);
+    }
+
+    function isUF(UF) {
+        const uf = UF.toUpperCase();
+        return estados.includes(uf);
     }
 
     const cpfValidator = (value) => {
         const cleanCPF = value.replace(/[^\d]/g, '');
     
-        if (cleanCPF.length !== 11 || /^(\d)\1*$/.test(cleanCPF)) {
-            return false;
+        // Verificar se o CPF contém apenas números e tem comprimento igual a 11
+        if (!/^\d{11}$/.test(cleanCPF)) {
+            return false; // Retorna falso se o CPF contém caracteres não numéricos ou tem comprimento diferente de 11
         }
     
+        // Validação do CPF
         let sum = 0;
         let remainder;
     
@@ -63,6 +70,7 @@ export default function SignUp ({changeAuth}) {
     
         return true;
     };
+    
 
     const estados = [
         "AC",
@@ -139,6 +147,12 @@ export default function SignUp ({changeAuth}) {
             if(verificaCelular === false){
                 setIsLoading(false);
                 return toast.error('Insira um número de celular válido')
+            }
+
+            const verificaUF = isUF(form.uf)
+            if(!verificaUF){
+                setIsLoading(false)
+                return toast.error('Insira um UF válido')
             }
 
         try {   
@@ -229,6 +243,7 @@ export default function SignUp ({changeAuth}) {
                 <InputWrapper width={"100%"}>
                     <Input 
                         label="Qual seu CPF?"     
+                        placeholder='Apenas números'    
                         type="text" 
                         name={"cpf"} 
                         value={form.cpf} 
@@ -242,6 +257,7 @@ export default function SignUp ({changeAuth}) {
                     <Input 
                         label="Data de Nascimento"     
                         type="text" 
+                        placeholder='Apenas números'    
                         name={"birthday"} 
                         value={form.birthday} 
                         onChange={handleForm}
@@ -254,8 +270,8 @@ export default function SignUp ({changeAuth}) {
                 <InputWrapper width={"100%"}>
                     <Input 
                         label="Celular com DDD"     
-                        placeholder=''
-                        type="number" 
+                        type="text" 
+                        placeholder='Apenas números' 
                         name={"phoneNumber"} 
                         value={form.phoneNumber} 
                         onChange={handleForm}
@@ -298,6 +314,7 @@ export default function SignUp ({changeAuth}) {
                         onChange={handleForm}
                         width="80%"
                         disabled={isLoading}
+
                     />
                 </InputWrapper>
 
@@ -341,7 +358,7 @@ export default function SignUp ({changeAuth}) {
 
 const Container = styled.div`
     width: 490px;
-    height: 560px;
+    height: 580px;
     background-color: #FFFFFF;
     box-shadow: 0 8px 50px 0 #00000038;
     border-radius: 10px;
