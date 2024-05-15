@@ -54,9 +54,8 @@ function Pagamento() {
             </LeftInfos>
             <RightInfos isVisible={isVisible}>
               <div>
-                <p>De <b>R$ 1299,99</b> por até</p>
-                <h2>12x de <br></br>R$ 87,50</h2>
-                <p>ou R$ 900,00 à vista</p>
+                <p>De <b>R$ 1800,00</b> por</p>
+                <h1>R$ 1497,00 à vista</h1>
                 <Button onClick={handlePayment}>Quero garantir minha vaga!</Button>
               </div>
             </RightInfos>
@@ -180,9 +179,10 @@ const RightInfos = styled.div`
   width: 50%;
   padding-top: 6vh !important;
   div {
-    height: 90%;
+    height: 70%;
     display: flex;
     flex-direction: column;
+    justify-content:center;
     align-items: center;
     padding-top: 5vh;
     width: 100%;
