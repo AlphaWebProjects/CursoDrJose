@@ -5,7 +5,6 @@ export default function ShowMoreContainer({showMoreBool, setShowMoreBool, closeB
 
     useEffect(() => {
         
-        console.log('caiu no use effect')
         setShowMoreBool(false)
         
       }, [closeBool, setShowMoreBool]);

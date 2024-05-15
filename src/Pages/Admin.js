@@ -7,7 +7,7 @@ import UserContext from '../context/UserContext';
 function Admin() {
 
   const { userData } = useContext(UserContext);
-  console.log(userData)
+
 
   const paymentsArr = [
     {

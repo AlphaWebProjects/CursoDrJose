@@ -12,8 +12,7 @@ function Header() {
   const { userData } = useContext(UserContext);
   const { setUserData } = useContext(UserContext);
   const {name,email} = useUserInfo()
-    console.log(useUserInfo())
-    console.log(userData)
+
 
   async function handleLogout(){
     try {
