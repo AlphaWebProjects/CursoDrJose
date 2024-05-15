@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_BACK_END_URL || 'http://localhost:4000';
+const BASE_URL = process.env.REACT_APP_BACK_END_URL || 'https://api-drjose-a332c114b508.herokuapp.com';
 
 function CreateSession(body) {
     return axios.post(`${BASE_URL}/auth/sign-in`, body);
