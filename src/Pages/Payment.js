@@ -3,83 +3,40 @@ import { useContext, useState } from 'react';
 import api from '../services/API';
 import { toast } from 'react-toastify';
 import UserContext from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Payment() {
-    //const base64pdfTest = "JVBERi0xLjQKJeLjz9MKMyAwIG9iago8PC9UeXBlL1hPYmplY3QvU3VidHlwZS9JbWFnZS9XaWR0aCA1NzgvSGVpZ2h0IDM4NC9GaWx0ZXIvRENURGVjb2RlL0NvbG9yU3BhY2U";
     const [cupom, setCupom] = useState("");
+    const [loading, setLoading] = useState(false);
     const { userData } = useContext(UserContext);
+    const navigate = useNavigate();
 
     function handleCupom({ target: { value } }) {
         setCupom(value);
     }
 
-    const base64ToBlob = (base64, contentType = '', sliceSize = 512) => {
-        const byteCharacters = atob(base64);
-        const byteArrays = [];
-    
-        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-          const slice = byteCharacters.slice(offset, offset + sliceSize);
-          const byteNumbers = new Array(slice.length);
-          for (let i = 0; i < slice.length; i++) {
-            byteNumbers[i] = slice.charCodeAt(i);
-          }
-          const byteArray = new Uint8Array(byteNumbers);
-          byteArrays.push(byteArray);
-        }
-    
-        const blob = new Blob(byteArrays, { type: contentType });
-        return blob;
-    };
-
-    const downloadAutomatically = (base64pdfTest) => {
-        const blob = base64ToBlob(base64pdfTest, 'application/pdf');
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'file.pdf';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-    };
-
-    const downloadManually = (base64pdfTest) => {
-        const blob = base64ToBlob(base64pdfTest, 'application/pdf');
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'file.pdf';
-        a.textContent = 'Download PDF';
-        document.body.appendChild(a);
-        // A linha abaixo deve ser comentada para deixar o link visível para o usuário clicar manualmente
-        // a.click();
-        // a.remove();
-        // URL.revokeObjectURL(url);
-    };
-
-    async function handlePayment(){
-        
-
-
-        try {        
-            const response = await api.CreatePayment({token: userData.token, cupom});
-            if( response.status === 201){
+    async function handlePayment() {
+        setLoading(true);  // Inicie o estado de carregamento
+        try {
+            const response = await api.CreatePayment({ token: userData.token, cupom });
+            if (response.status === 201) {
                 console.log(response.data);
-                downloadAutomatically(response.data.pdfBoleto)
+                navigate("/thanks", { state: { paymentData: response.data } });
                 toast.dark("Boleto gerado com sucesso!");
-                return;
+            } else {
+                toast.error("Erro ao gerar o boleto.");
             }
         } catch (error) {
             console.log(error);
             toast.error("Verifique os valores !!");
-            return;
+        } finally {
+            setLoading(false);  // Finalize o estado de carregamento
         }
- 
     }
 
     return (
         <Container>
-            <TopBackground/>
+            <TopBackground />
             <CourseContainer>
                 <h1>{"Curso do Dr José"}</h1>
                 <p>{"Uberlândia - 21/05 - 19h"}</p>
@@ -91,7 +48,7 @@ export default function Payment() {
 
                     <div>
                         <h3>{"Valor"}</h3>
-                        <p>{"R$ 1.900,00"}</p>
+                        <p>{"R$ 1.497,00"}</p>
                     </div>
 
                     <div>
@@ -101,13 +58,16 @@ export default function Payment() {
                             placeholder="Caso possua, insira o cupom" 
                             value={cupom} 
                             onChange={handleCupom}
+                            disabled={loading}  // Desabilite o campo durante o carregamento
                         />
                     </div>
 
                 </SubDataContainer>
-                 
+
                 <ButtonWrapper>
-                    <StyledButton onClick={handlePayment}>{"QUERO GARANTIR MINHA VAGA"}</StyledButton>
+                    <StyledButton onClick={handlePayment} disabled={loading}>
+                        {loading ? "Carregando..." : "QUERO GARANTIR MINHA VAGA"}
+                    </StyledButton>
                 </ButtonWrapper>
             </CourseContainer>
         </Container>
@@ -187,6 +147,10 @@ const StyledButton = styled.button`
     transition: background-color 0.3s;
     &:hover {
         background-color: #22D8C0;
+    }
+    &:disabled {
+        background-color: #aaa;
+        cursor: not-allowed;
     }
 `;
 
