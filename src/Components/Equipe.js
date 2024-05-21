@@ -46,7 +46,7 @@ function Equipe() {
   
   const Container = styled.div`
     width: 100%;
-    height: 90%;
+    height: 95%;
     margin-top: -2px;
     @media (max-width: 1200px) {
      height: auto;
@@ -81,7 +81,7 @@ const Members= styled.div`
   p{
     text-align:center;
     font-size: 15px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
   @media (max-width: 1200px) {
     flex-direction: column;

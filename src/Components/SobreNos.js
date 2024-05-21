@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import logo from '../img/logoSmall.png';
-
+import background from '../img/backgroundLiso.png'
 function SobreNos() {
   const [fadeIn, setFadeIn] = useState(false);
 

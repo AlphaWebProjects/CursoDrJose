@@ -40,9 +40,9 @@ function Pagamento() {
       <MainContentCurso id="mainContentCurso">
         <CenterContent>
           <h1>Sobre a nossa oferta</h1>
+          <h2 style={{ color:'#158A7A'}}>Data do curso: 25/06/2024</h2>
           <InfoContainer>
             <LeftInfos isVisible={isVisible}>
-              <h2>Investimento</h2>
               <ul>
                 <li>• Preparação completa para o manejo de ferramentas {<Check/>}</li>
                 <li>• Várias aplicações práticas com feedback {<Check/>}</li>
@@ -53,6 +53,7 @@ function Pagamento() {
               </ul> 
             </LeftInfos>
             <RightInfos isVisible={isVisible}>
+            <h2>Investimento</h2>
               <div>
                 <p>De <b>R$ 1800,00</b> por</p>
                 <h1>R$ 1497,00 à vista</h1>
@@ -85,21 +86,21 @@ const InfoContainer = styled.div`
 
 const LeftInfos = styled.div`
   width: 45%;
-  height: 100%;
+  height: 60vh;
   display: flex;
   align-items: center;
+  justify-content:center;
   flex-direction: column;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transition: opacity 2s ease-in-out;
   ul{
     padding: 4vh 5vh;
-    border: 3px solid #158A7A;
     height: auto;
     border-radius: 13px;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
-    overflow-y: scroll;
     scrollbar-width: thin; 
     scrollbar-color: #158A7A transparent; 
+    box-shadow: #158A7A 0px 5px 15px;
     &:hover {
     transform: scale(1.015);
     cursor: pointer;
@@ -174,8 +175,12 @@ height: 2vh !important;
 const RightInfos = styled.div`
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transition: opacity 2s ease-in-out;
-  height: auto;
+  height: 60vh;
   padding: 0 !important;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:start;
   width: 50%;
   padding-top: 6vh !important;
   div {
@@ -199,10 +204,11 @@ const RightInfos = styled.div`
     text-align: center;
   }
   h2{
-    font-size: 55px;
+    font-size: 45px;
     color: green;
     margin: 0 ;
     text-align: center;
+    margin-bottom: 10px;
   }
   b{
     text-decoration: line-through;
@@ -269,7 +275,7 @@ const CenterContent = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.95);
