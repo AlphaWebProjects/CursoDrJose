@@ -181,7 +181,7 @@ const RightInfos = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    width: 10vw;
     padding: 3vh;
     box-shadow: #158A7A 0px 5px 15px;
     border-radius: 15px;

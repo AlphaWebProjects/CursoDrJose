@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import logo from '../img/logoSmall.png';
-
+import background from '../img/backgroundSimva.png'
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [width, setWidth] = useState(window.innerWidth)
@@ -81,7 +81,7 @@ const Container = styled.div`
   width: 100%;
   height: 90%;
   margin-top: 120px;
-  background-image: url('https://saocamilo-sp.br/assets/uploads/a11.png');
+  background-image: url(${background});
   background-size: cover;
   background-position: center;
   @media (max-width: 1200px) {
@@ -165,7 +165,7 @@ const CenterContent = styled.div`
   display: flex;
   border-radius: 20px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.85);
   @media (max-width: 420px) {
     margin-top: 10px;
   }
