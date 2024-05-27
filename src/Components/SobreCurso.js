@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaCheckCircle } from "react-icons/fa";
 import styled from 'styled-components';
-import doctor2 from '../img/FotosAlunos1.jpeg';
+import doctor2 from '../img/Background2.png';
 import img1 from '../img/img_curso1.png';
 import img2 from '../img/img_curso2.png';
 import img3 from '../img/img_curso3.png';
@@ -41,17 +41,17 @@ function SobreCurso() {
               </ul> 
             </LeftInfos>
             <RightInfos isVisible={isVisible}>
-              <div>
+              <div style={{textAlign:'center'}}>
                 <img src={img1} width="150" height="150" alt="Logo" />
                 <h2>Prático</h2>
                 <h3>Treinamento prático com casos clínicos reais</h3>
               </div>
-              <div>
+              <div style={{textAlign:'center'}}>
                 <img src={img2} width="150" height="150" alt="Logo" />
                 <h2>Teórico</h2>
                 <h3>Conteúdo didático sedimentado através de uma metodologia exclusiva</h3>
               </div>
-              <div>
+              <div style={{textAlign:'center'}}>
                 <img src={img3} width="150" height="150" alt="Logo" />
                 <h2>Qualidade USP</h2>
                 <h3>Equipe formada no maior centro de excelência médica do país.</h3>
@@ -91,18 +91,18 @@ const LeftInfos = styled.div`
   transition: opacity 2s ease-in-out;
   ul{
     padding: 4vh 5vh;
-    border: 3px solid #158A7A;
+    border: 3px solid #4bc6b4;
     border-radius: 13px;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
     list-style-type: disc !important;
     overflow-y: scroll;
     scrollbar-width: thin; /* Define a largura da barra de rolagem */
-    scrollbar-color: #158A7A transparent; /* Define a cor da barra de rolagem e do fundo */
+    scrollbar-color: #4bc6b4 transparent; /* Define a cor da barra de rolagem e do fundo */
     &:hover {
     transform: scale(1.015);
     cursor: pointer;
-    box-shadow: #158A7A 0px 5px 15px;
-    border: 1px solid #158A7A;
+    box-shadow: #4bc6b4 0px 5px 15px;
+    border: 1px solid #4bc6b4;
   }
   }
   ul::-webkit-scrollbar {
@@ -110,7 +110,7 @@ const LeftInfos = styled.div`
   }
 
   ul::-webkit-scrollbar-thumb {
-      background-color: #158A7A; /* Cor do polegar (a parte que você arrasta) */
+      background-color: #4bc6b4; /* Cor do polegar (a parte que você arrasta) */
       border-radius: 4px; /* Raio de borda do polegar */
   }
   li {
@@ -119,7 +119,7 @@ const LeftInfos = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #158A7A;
+    border-bottom: 2px solid #4bc6b4;
     padding: 1vh 0;
     width: 50vh;
     &:last-child {
@@ -136,8 +136,8 @@ const LeftInfos = styled.div`
   }
   h2{
     font-size: 32px !important;
-    border-left: 3.5px solid black;
-    border-right: 3.5px solid black;
+    border-left: 3.5px solid white;
+    border-right: 3.5px solid white;
     padding: 1.5vh 3vh;
     border-radius: 10px;
   }
@@ -183,7 +183,7 @@ const RightInfos = styled.div`
     align-items: center;
     width: 10vw;
     padding: 3vh;
-    box-shadow: #158A7A 0px 5px 15px;
+    box-shadow: #4bc6b4 0px 5px 15px;
     border-radius: 15px;
     margin-right: 4vh;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
@@ -226,6 +226,7 @@ const Container = styled.div`
   height: 100%;
   background-image: url(${doctor2});
   background-size: cover;
+  color:#FFFFFF;
   background-position: center top 60%;
   list-style-type: disc !important;
   @media (max-width: 1200px) {
@@ -237,6 +238,7 @@ const MainContentCurso = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  backdrop-filter: blur(10px);
   padding: 5%;
   @media (max-width: 1200px) {
     height: auto;
@@ -251,15 +253,13 @@ const CenterContent = styled.div`
   justify-content: space-around;
   align-items: center;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 5%;
   h1 {
-    color: #158a7a;
+    color: #4bc6b4;
     font-size: 40px;
     padding: 12px;
     border-radius: 12px;
-    border-bottom: 3px solid #158a7a;
+    border-bottom: 3px solid #4bc6b4;
   }
   p {
     width: 80%;

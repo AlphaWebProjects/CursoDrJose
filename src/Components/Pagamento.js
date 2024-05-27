@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import doctor2 from '../img/FotosAlunos1.jpeg';
 import UserContext from '../context/UserContext';
 import useNavigateAndMoveUp from '../hooks/useNavigateAndMoveUp';
-
+import background from '../img/Background1.png'
 function Pagamento() {
   const [isVisible, setIsVisible] = useState(false);
   const { userData } = useContext(UserContext);
@@ -40,7 +40,7 @@ function Pagamento() {
       <MainContentCurso id="mainContentCurso">
         <CenterContent>
           <h1>Sobre a nossa oferta</h1>
-          <h2 style={{ color:'#158A7A'}}>Data do curso: 25/06/2024</h2>
+          <h2 style={{ color:'#4bc6b4'}}>Data do curso: 25/06/2024</h2>
           <InfoContainer>
             <LeftInfos isVisible={isVisible}>
               <ul>
@@ -252,9 +252,10 @@ const Button = styled.button`
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(${doctor2});
+  background-image: url(${background});
   background-size: cover;
-  background-position: center top 60%;
+  color:#FFFFFF;
+  background-position: center;
   @media (max-width: 1200px) {
     height: auto;
   }
@@ -265,6 +266,7 @@ const MainContentCurso = styled.div`
   height: 100%;
   display: flex;
   padding: 5%;
+  backdrop-filter: blur(10px);
   @media (max-width: 1200px) {
     height: auto;
   }
@@ -278,15 +280,13 @@ const CenterContent = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 5%;
   h1 {
-    color: #158a7a;
+    color: #4bc6b4;
     font-size: 40px;
     padding: 12px;
     border-radius: 12px;
-    border-bottom: 3px solid #158a7a;
+    border-bottom: 3px solid #4bc6b4;
     text-align: center;
   }
   p {

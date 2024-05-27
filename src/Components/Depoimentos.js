@@ -12,6 +12,7 @@ import MarcelaRahal from '../img/MarcelaRahal.jpeg'
 import Isabele from '../img/Isabele.jpeg'
 import GuilhermeRossi from '../img/GuilhermeRossi.jpeg'
 import Caroline from '../img/Caroline.png'
+import background from '../img/Background2.png'
 function Depoimentos() {
 
   const [isVisible, setIsVisible] = useState(false);
@@ -193,6 +194,10 @@ function Depoimentos() {
     width: 100%;
     height: auto;
     margin-top: -2px;
+    background-image: url(${background});
+    background-size: cover;
+    color:#FFFFFF;
+    background-position: center;
     @media (max-width: 1200px) {
   }
 `;
@@ -201,8 +206,7 @@ const Members= styled.div`
   width: 70%;  
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transition: opacity 2s ease-in-out;
-  border: 0.5px solid #158A7A;
-  box-shadow: #158A7A 0px 5px 15px;
+  border: 0.5px solid #4bc6b4;
   border-radius: 15px;
   padding: 5vh;
   display: flex;
@@ -224,7 +228,7 @@ img{
   width: 23vh;
   height: 18vh;
   border-radius: 20px;
-  box-shadow: #158A7A 0px 3px 10px;
+  box-shadow: #4bc6b4 0px 3px 10px;
   @media (max-width: 1200px) {
     width: 80%;
     height: 65%;
@@ -256,9 +260,7 @@ const MainContentEquipe= styled.div`
     height: auto;
     display: flex;
     padding: 5%;
-    background: #ADA996;
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
-    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); 
+    backdrop-filter: blur(10px);
     @media (max-width: 1200px) {
     height: auto;
   }
@@ -271,14 +273,13 @@ const CenterContent = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content:center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding:5%;
     h1 {
-    color: #158a7a;
+    color: #4bc6b4;
     font-size: 40px;
     padding: 12px;
     border-radius: 12px;
-    border-bottom: 3px solid #158a7a;
+    border-bottom: 3px solid #4bc6b4;
     margin-bottom: 5vh;
   }
   @media (max-width: 1200px) {

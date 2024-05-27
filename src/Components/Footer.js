@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import logo from "../img/logoSmall.png";
-
+import logo from "../img/logoSmallClaro.png";
+import backgroundHome from '../img/Background1.png'
 export default function Footer(){
   const instagram = "https://www.instagram.com"
   const whatsappNumber = "+553538216262";
@@ -12,7 +12,7 @@ export default function Footer(){
 
   return (
     <Container>
-
+      <MainContent>
       <TitleContainer>
         <h3>{"Conecte-se Conosco"}</h3>
         <SocialContainer>
@@ -50,20 +50,28 @@ export default function Footer(){
       <AboutContainer>
         <span>{"Todos Direitos Reservados ©"}</span>
       </AboutContainer>
-
+      </MainContent>
     </Container>
   )
 }
 
+
+const MainContent = styled.div`
+  backdrop-filter: blur(10px);
+  width:100%;
+  padding-left: 5vw;
+`
+
 const Container = styled.footer`
-  background-color: #158A7A;
+  background-image: url(${backgroundHome});
+  background-size: cover;
+  background-position: center;
   width: 100%;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 2vh 0;
   color: #FFFFFF;
   row-gap: 4vh;
   @media (max-width: 850px) {
@@ -129,11 +137,9 @@ const SubContainer = styled.div`
   }
 `
 const ImageContainer = styled.div`
-background-color: white !important;
 border-radius: 15px;
 padding: 2vh;
 margin: 0 !important;
-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 transition: transform 0.3s ease-in-out;
   img {
     height: 15vh;
