@@ -11,7 +11,6 @@ import SobreNos from '../Components/SobreNos';
 export default function LandingPage() {
     return (
         <Container>
-            <Header />
             <Home/>
             <SobreNos/>
             <SobreCurso/>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import logo from '../img/logoSmall.png';
-import background from '../img/backgroundLiso.png'
+import logo from '../img/logoSmallClaro.png';
+import backgroundPag2 from '../img/Background2.png';
+import { Fade, Zoom } from 'react-awesome-reveal';
 function SobreNos() {
   const [fadeIn, setFadeIn] = useState(false);
 
@@ -26,23 +27,25 @@ function SobreNos() {
   return (
     <Container>
       <MainContentUs>
+      <Fade delay={300} cascade  damping={0.3} triggerOnce={true} >
         <CenterContent>
           <Left className="fadeInOnScroll">
             <AnimatedImage src={logo} width="390" height="100" alt="Logo" fadeIn={fadeIn} />
           </Left>
           <Right className="fadeInOnScroll"  fadeIn={fadeIn}>
-            <h1><span style={{ color: '#158A7A' }}>Nosso objetivo</span></h1>
+            <h1><span style={{ color: '#4bc6b4' }}>Nosso objetivo</span></h1>
             <p>
-              Nosso objetivo é <span style={{ color: '#158A7A' }}>trazer segurança para o médico no manejo da via aérea. </span>   
+              Nosso objetivo é <span style={{ color: '#4bc6b4' }}>trazer segurança para o médico no manejo da via aérea. </span>   
               É importante ter em mente que a laringoscopia é apenas uma parte do grande cenário que permeia o manejo da via aérea do paciente crítico. 
                
             </p>
             <p>
-            Existem pré-requisitos <span style={{ color: '#158A7A' }}> fundamentais e necessários </span>  antes da  técnica de intubação que precisam ser dominados para se ter uma via área segura e são sobre esses pilares que o SIMVA se fundamenta, 
+            Existem pré-requisitos <span style={{ color: '#4bc6b4' }}> fundamentais e necessários </span>  antes da  técnica de intubação que precisam ser dominados para se ter uma via área segura e são sobre esses pilares que o SIMVA se fundamenta, 
               propiciando diretrizes bem estruturadas para o manejo e segurança no cuidado do seu paciente.
             </p>
           </Right>
         </CenterContent>
+        </Fade>
       </MainContentUs>
     </Container>
   );
@@ -75,7 +78,7 @@ const Right = styled.div`
     font-size: 45px;
     padding: 12px;
     border-radius: 12px;
-    border-bottom: 3px solid #158a7a;
+    border-bottom: 3px solid #4bc6b4;
   }
   p{
     font-size: 19px;
@@ -101,6 +104,9 @@ const Left = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 90%;
+  background-image: url(${backgroundPag2});
+  background-size: cover;
+  background-position: center;
   @media (max-width: 1200px) {
     height: auto;
   }
@@ -111,10 +117,8 @@ const MainContentUs = styled.div`
   height: 100%;
   display: flex;
   padding: 5%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  background: #ADA996;
-  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  
-  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); 
+  backdrop-filter: blur(10px);
+  color:#FFFFFF;
   @media (max-width: 1200px) {
     height: auto;
   }
@@ -125,17 +129,10 @@ const CenterContent = styled.div`
   height: 100%;
   display: flex;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 5%;
   transition: transform 3s, box-shadow 0.3s, border-radius 0.3s;
-  &:hover {
-    transform: scale(1.015);
-    border-radius: 20px;
-    box-shadow: #158A7A 0px 5px 15px;
-  }
   @media (max-width: 1200px) {
     flex-direction: column;
     align-items: center;
-    box-shadow: #158A7A 0px 5px 15px;
   }
 `;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import felipe from '../img/FelipeFoto.jpeg';
 import gabriel from '../img/gabriel.jpeg';
 import jose from '../img/jose.png';
+import background from '../img/Background1.png'
 function Equipe() {
   const [isVisible, setIsVisible] = useState(false);
     useEffect(() => {
@@ -48,6 +49,10 @@ function Equipe() {
     width: 100%;
     height: 95%;
     margin-top: -2px;
+    background-image: url(${background});
+  background-size: cover;
+  color:#FFFFFF;
+  background-position: center;
     @media (max-width: 1200px) {
      height: auto;
   }
@@ -82,6 +87,7 @@ const Members= styled.div`
     text-align:center;
     font-size: 15px;
     margin-bottom: 80px;
+    font-weight: 500;
   }
   @media (max-width: 1200px) {
     flex-direction: column;
@@ -103,9 +109,7 @@ const MainContentEquipe= styled.div`
     height: 100%;
     display: flex;
     padding: 5%;
-    background: #ADA996;
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
-    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); 
+    backdrop-filter: blur(10px);
     @media (max-width: 1200px) {
     height: auto;
   }
@@ -118,14 +122,13 @@ const CenterContent = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content:center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding:5%;
     h1 {
-    color: #158a7a;
+    color: #4bc6b4;
     font-size: 40px;
     padding: 12px;
     border-radius: 12px;
-    border-bottom: 3px solid #158a7a;
+    border-bottom: 3px solid #4bc6b4;
     margin-bottom: 5vh;
   }
   @media (max-width: 1200px) {
