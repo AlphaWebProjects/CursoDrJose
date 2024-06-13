@@ -1,223 +1,256 @@
 import { format, parseISO } from 'date-fns';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Payments from '../Components/AdminComponents/PaymentComponents/Payments';
 import UserContext from '../context/UserContext';
+import backgroundHome from '../img/Background1.png'
+import axios from 'axios';
 
 function Admin() {
-
   const { userData } = useContext(UserContext);
+  const BASE_URL = process.env.REACT_APP_BACK_END_URL || 'https://api-drjose-a332c114b508.herokuapp.com';
 
-
-  const paymentsArr = [
-    {
-        id: 1,
-        status: false,
-        value: 135.99,
-        date: '',
-        name: 'Pedro Arthur Dias Ribeiro'
-    },
-    {
-        id: 2,
-        status: true,
-        value: 135.99,
-        date: '14/03/2024',
-        name: 'Pedro Leôncio Pereira'
-    },
-    {
-        id: 3,
-        status: false,
-        value: 135.99,
-        date: '',
-        name: 'Marcus Vinícius de Castro Rodrigues'
-    },
-    {
-        id: 4,
-        status: true,
-        value: 135.99,
-        date: '12/03/2024',
-        name: 'Álvaro Caires Ribeiro'
-    },
-    {
-      id: 5,
-      status: true,
-      value: 135.99,
-      date: '22/03/2024',
-      name: 'Pablo Siervuli'
-  },
-  {
-    id: 6,
-    status: true,
-    value: 135.99,
-    date: '25/03/2024',
-    name: 'Bruno Abdalla'
-},
-{
-  id: 7,
-  status: true,
-  value: 135.99,
-  date: '25/03/2024',
-  name: 'Antônio Gabriel Leôcio Pereira'
-},
-{
-  id: 8,
-  status: true,
-  value: 135.99,
-  date: '08/03/2024',
-  name: 'Marcelo Alves de Castro'
-},
-]
-
-  const [paymentsArrState, setPaymentsArrState] = useState([])
-  const [inputValue, setInputValue] = useState([])
+  const [paymentsArrState, setPaymentsArrState] = useState([]);
+  const [initialPayments, setInitialPayments] = useState([]);
+  const [inputValue, setInputValue] = useState('');
   const [closeBool, setCloseBool] = useState(false);
-  
 
-  function setPaymentsByStatus(status){
-
-    setCloseBool(!closeBool)
-
-    if(status === 'all'){
-      setPaymentsArrState(paymentsArr);
-      return
+  useEffect(() => {
+    async function fetchPayments() {
+      try {
+        const response = await axios.get(`${BASE_URL}/payment`, { headers: { Authorization: `Bearer ${userData.token}` } });
+        console.log(response.data);
+        setPaymentsArrState(response.data);
+        setInitialPayments(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar dados de pagamentos:', error);
+      }
     }
 
-    if(status === 'true'){
-      setPaymentsArrState(paymentsArr.filter(p => p.status === true))
-      return
+    fetchPayments();
+  }, [BASE_URL, userData.token]);
+
+  function setPaymentsByStatus(status) {
+    setCloseBool(!closeBool);
+    console.log(status);
+    if (status === 'all' || status === '') {
+      setPaymentsArrState(initialPayments);
+      return;
     }
 
-    if(status === 'false'){
-      setPaymentsArrState(paymentsArr.filter(p => p.status === false))
-      return
-    }
-
+    setPaymentsArrState(initialPayments.filter(p => String(p.paymentStatus) === status));
   }
 
-  function setPaymentsByDate(date){
+  function setPaymentsByDate(date) {
+    setCloseBool(!closeBool);
 
-    setCloseBool(!closeBool)
-
-    if(!date){
-      return
+    if (!date) {
+      setPaymentsArrState(initialPayments);
+      return;
     }
 
     const dataFormatada = format(parseISO(date), 'dd/MM/yyyy');
+    console.log(dataFormatada);
+    console.log(initialPayments);
+    const filtered = initialPayments.filter(p => formatDate(p.dataEmissao) === dataFormatada);
 
-    const filtered = paymentsArr.filter(p => p.date === dataFormatada)
-
-    if(filtered.length === 0){
-      return
-    }
-
-    setPaymentsArrState(filtered)
-
+    setPaymentsArrState(filtered);
   }
 
   function inputVerification(value) {
+    setCloseBool(!closeBool);
 
-    setCloseBool(!closeBool)
+    if (value === '') {
+      setPaymentsArrState(initialPayments);
+      setInputValue(value);
+      return;
+    }
 
-    const arr = paymentsArr;
-    const filteredArr = arr.filter(p =>
-      p.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(value.toLowerCase()),
+    const filteredArr = initialPayments.filter(p =>
+      p.pagador.nome.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(value.toLowerCase()),
     );
     setPaymentsArrState(filteredArr);
     setInputValue(value);
   }
 
-    return (
-      
-      <Container>
-              <MainContentUs>
-                <CenterContent>
-                  <>
-                    <Options>
-
-                    <p>Pagamentos</p>
-
-                    <Select onClick={(e) => setPaymentsByStatus(e.target.value)} onChange={(e) => setPaymentsByStatus(e.target.value)} placeholder='Status'>
-
-                      <option value=''>- Status -</option>
-                      <option value='all'>Todos</option>
-                      <option value={true}>Pagos</option>
-                      <option value={false}>Pendentes</option>
-
-                    </Select>
-
-                    <Datepicker onChange={(e) => setPaymentsByDate(e.target.value)} onClick={(e) => setPaymentsByDate(e.target.value)} type='date'/>
-
-                    <Input 
-                    placeholder='Busque por nome...' 
-                    onChange={(e) => inputVerification(e.target.value)}
-                    value={inputValue}
-                    />
-
-                    </Options>
-
-                    <Payments paymentsArr={paymentsArrState} closeBool={closeBool}/>  
-
-                  </>     
-                </CenterContent>
-              </MainContentUs>
-      </Container>
-    );
+  function formatDate(isoString) {
+    return format(parseISO(isoString), 'dd/MM/yyyy');
   }
-  
-  export default Admin;
-  
-  const Container = styled.div`
-    width: auto;
-    height: auto;
-    p{
-      font-size: 3vh;
-    }
+
+  return (
+    <Container>
+      <MainContentUs>
+        <CenterContent>
+          <Options>
+            <h1>Pagamentos</h1>
+            <Select onChange={(e) => setPaymentsByStatus(e.target.value)}>
+              <option value=''>- Status -</option>
+              <option value='all'>Todos</option>
+              <option value='PAID'>Pagos</option>
+              <option value='PENDING'>Pendentes</option>
+            </Select>
+            <Datepicker onChange={(e) => setPaymentsByDate(e.target.value)} type='date' />
+            <Input
+              placeholder='Busque por nome...'
+              onChange={(e) => inputVerification(e.target.value)}
+              value={inputValue}
+            />
+          </Options>
+          <PaymentsWrapper>
+            {paymentsArrState.map(payment => (
+              <PaymentCard key={payment.id} status={payment.status}>
+                <h2>{payment.pagador.nome}</h2>
+                <p>Valor: R$ {payment.value}</p>
+                <p>Data de Emissão: {payment.dataEmissao ? formatDate(payment.dataEmissao) : 'N/A'}</p>
+                <p>Status: {payment.paymentStatus === "PENDING" ? 'Pendente' : 'Pago'}</p>
+              </PaymentCard>
+            ))}
+          </PaymentsWrapper>
+        </CenterContent>
+      </MainContentUs>
+    </Container>
+  );
+}
+
+export default Admin;
+
+const Container = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(${backgroundHome});
+  background-size: cover;
+  background-position: center;
+  p {
+    font-size: 3vh;
+  }
+  h1 {
+    color: #FFFFFF;
+  }
 `;
 
 const MainContentUs = styled.div`
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    padding: 5%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background: #ADA996;
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); 
-    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
-`
-const CenterContent = styled.div`
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding:2% 4%;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  backdrop-filter: blur(10px);
+  padding: 5%;
+  @media (max-width: 768px) {
+    padding: 2%;
+  }
+`;
 
-`
+const CenterContent = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 2% 4%;
+  @media (max-width: 768px) {
+    padding: 2%;
+  }
+`;
 
 const Options = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+
+  p {
+    margin-right: 2vh;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    p, select, input {
+      margin-bottom: 10px;
+      margin-left: 0;
+      width: 80%;
+    }
+  }
+`;
 
 const Select = styled.select`
-margin-left: 2vh;
-width: 10vh;
-height: 2.8vh;
-border-radius: 10px;
-`
+  margin-left: 2vh;
+  width: 10vh;
+  height: 2.8vh;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+`;
 
 const Datepicker = styled.input`
-margin-left: 2vh;
-width: 13vh;
-height: 2.8vh;
-border-radius: 10px;
-`
+  margin-left: 2vh;
+  width: 13vh;
+  height: 2.8vh;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+`;
 
 const Input = styled.input`
-margin-left: 2vh;
-width: 25vh;
-height: 2.8vh;
-border-radius: 10px;
-`
+  margin-left: 2vh;
+  width: 25vh;
+  height: 2.8vh;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+`;
+
+const PaymentsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const PaymentCard = styled.div`
+  background-color: ${({ status }) => (status ? '#d4edda' : '#f8d7da')};
+  border: 1px solid ${({ status }) => (status ? '#c3e6cb' : '#f5c6cb')};
+  border-radius: 10px;
+  padding: 15px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    margin: 5px 0;
+  }
+`;

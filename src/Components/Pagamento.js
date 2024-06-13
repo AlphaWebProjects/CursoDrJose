@@ -199,7 +199,7 @@ const RightInfos = styled.div`
   }
   }
   p{
-    font-size: 36px !important;
+    font-size: 26px !important;
     margin: 0 ;
     text-align: center;
   }
@@ -286,7 +286,6 @@ const CenterContent = styled.div`
     font-size: 40px;
     padding: 12px;
     border-radius: 12px;
-    border-bottom: 3px solid #4bc6b4;
     text-align: center;
   }
   p {
