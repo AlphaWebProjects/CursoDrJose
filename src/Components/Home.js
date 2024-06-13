@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import logo from '../img/logoSmallClaro.png';
-import background from '../img/backgroundSimva.png'
 import backgroundHome from '../img/Background1.png'
+import UserContext from "../context/UserContext.js"
+import { Link } from 'react-router-dom';
+import { useContext } from "react"
 import { Fade, Zoom } from 'react-awesome-reveal';
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [width, setWidth] = useState(window.innerWidth)
-
+  const { userData, setUserData } = useContext(UserContext);
+  console.log(userData)
+  async function handleLogout(){
+    try {
+      await api.LogoutSession(userData.token)
+      setUserData({})
+      window.location.reload()
+    } catch (error) {
+      setUserData({})
+      console.log(error)
+    }
+  }
   useEffect(() => {
 
     setTimeout(() => {
@@ -42,6 +55,22 @@ function Home() {
 
   return (
     <Container>
+      {userData.token ? (
+        <LogOutContainer>
+            <AdminButton>
+              <Link to="/admin">
+                <StyledLoginButton>Admin</StyledLoginButton>
+              </Link>
+            </AdminButton>
+          <span>Olá, { userData.name.split(" ")[0] }</span>
+            <StyledLogoutButton onClick={handleLogout}>Sair</StyledLogoutButton>
+
+        </LogOutContainer>
+    ) : (
+        <Link to="/auth">
+            <StyledLoginButton>Login</StyledLoginButton>
+        </Link>
+    )}
       <MainContentHome>
         <CenterContent>
           {width > 1200?
@@ -92,6 +121,76 @@ export default Home;
 const Logo = styled.div`
   position:absolute;
 `
+const AdminButton = styled.div`
+ background-color: #158A7A;
+ text-decoration: none;
+ left:15px;
+top:-25px;
+position: absolute;
+`
+
+const LogOutContainer = styled.div`
+display:flex;
+align-items:center;
+justify-content:center;
+width:250px;
+z-index:3;
+right:15px;
+top:25px;
+position: absolute;
+span{
+  font-size: 16px;
+  font-weight: 500;
+  color:#FFFFFF;
+  margin-right: 10px;
+}
+`;
+const StyledLogoutButton = styled.h2`
+  cursor: pointer;
+  min-width: 80px;
+  height: 40px;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  background-color: red;
+  text-decoration: none;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Adicionando transição para a mudança de escala */
+  
+  &:hover {
+    transform: scale(1.02); /* Aumenta em 5% ao passar o mouse */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+`;
+
+const StyledLoginButton = styled.h2`
+  cursor: pointer;
+  max-width: 100px;
+  width:100px;
+  height: 40px;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  background-color: #158A7A;
+  text-decoration: none;
+  border-radius: 20px;
+  z-index:3;
+  right:15px;
+  top:25px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Adicionando transição para a mudança de escala */
+  
+  &:hover {
+    transform: scale(1.02); /* Aumenta em 5% ao passar o mouse */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+`;
 
 const Container = styled.div`
   width: 100%;
