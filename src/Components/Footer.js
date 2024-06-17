@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from "../img/logoSmallClaro.png";
+import logo from '../img/logoSmall.png';
 import backgroundHome from '../img/Background1.png'
 export default function Footer(){
   const instagram = "https://www.instagram.com"
@@ -57,7 +57,6 @@ export default function Footer(){
 
 
 const MainContent = styled.div`
-  backdrop-filter: blur(10px);
   width:100%;
   padding-left: 5vw;
 `

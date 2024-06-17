@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import logo from '../img/logoSmallClaro.png';
+import logo from '../img/logoSmall.png';
 import backgroundHome from '../img/Background1.png'
 import UserContext from "../context/UserContext.js"
 import { Link } from 'react-router-dom';
@@ -83,24 +83,25 @@ function Home() {
         <Fade delay={300} cascade  damping={0.3} triggerOnce={true} style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
           <Left isVisible={isVisible}>
             <img src={logo}/>
-            <h1><span style={{ color: '#4bc6b4' }}>Domine o Essencial:<br /> Suporte no Manejo da Via Aérea</span></h1>
+            <h1><span style={{ color: '#158a7a' }}>Domine o Essencial:<br /> Suporte no Manejo da Via Aérea</span></h1>
             {width < 1200 
             ? 
             <>
               <p>
-              Descubra o poder de <span style={{ color: '#4bc6b4' }}> salvar vidas</span> com confiança! Nosso curso de 
-              <span style={{ color: '#4bc6b4' }}> Suporte Integral no Manejo da Via Aérea</span> é a chave para a excelência na prestação de cuidados médicos. 
+              Descubra o poder de <span style={{ color: '#158a7a' }}> salvar vidas</span> com confiança! Nosso curso de 
+              <span style={{ color: '#158a7a' }}> Suporte Integral no Manejo da Via Aérea</span> é a chave para a excelência na prestação de cuidados médicos. 
             </p>
             <p>
-            Projetado para profissionais de saúde que buscam dominar as <span style={{ color: '#4bc6b4' }}>técnicas vitais de intervenção em situações críticas</span>, 
+            Projetado para profissionais de saúde que buscam dominar as <span style={{ color: '#158a7a' }}>técnicas vitais de intervenção em situações críticas</span>, 
               este curso oferece uma abordagem abrangente, desde os fundamentos até as práticas avançadas.
             </p>
             </> 
             : 
             <>
               <p>
-              Descubra o poder de <span style={{ color: '#4bc6b4' , fontWeight:'bold'}}> salvar vidas</span> com confiança! Nosso curso de 
-              <span style={{ color: '#4bc6b4', fontWeight:'bold' }}> Suporte Integral no Manejo da Via Aérea</span> é a chave para a excelência na prestação de cuidados médicos. Projetado para profissionais de saúde que buscam dominar as <span style={{ color: '#4bc6b4', fontWeight:'bold' }}>técnicas vitais de intervenção em situações críticas</span>, 
+              Descubra o poder de <span style={{ color: '#158a7a' , fontWeight:'bold'}}> salvar vidas</span> com confiança! Nosso curso de 
+              <span style={{ color: '#158A7A', fontWeight:'bold' }}> Suporte Integral no Manejo da Via Aérea</span> é a chave para a excelência na prestação de cuidados médicos. Projetado para profissionais de saúde que buscam dominar as 
+              <span style={{ color: '#158A7A', fontWeight:'bold' }}>técnicas vitais de intervenção em situações críticas</span>, 
               este curso oferece uma abordagem abrangente, desde os fundamentos até as práticas avançadas.
             </p>
             </> 
@@ -141,7 +142,7 @@ position: absolute;
 span{
   font-size: 16px;
   font-weight: 500;
-  color:#FFFFFF;
+  color:black;
   margin-right: 10px;
 }
 `;
@@ -210,7 +211,6 @@ const MainContentHome = styled.div`
   height: 100%;
   display: flex;
   padding: 5%;
-  backdrop-filter: blur(10px);
 `;
 
 const Left = styled.div`
@@ -227,6 +227,7 @@ const Left = styled.div`
   p {
     font-size: 25px;
     font-weight: 500;
+    color:#158A7A;
   }
   h1{
     font-size: 40px;

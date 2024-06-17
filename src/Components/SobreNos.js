@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import logo from '../img/logoSmallClaro.png';
+import logo from '../img/logoSmall.png';
 import backgroundPag2 from '../img/Background2.png';
 import { Fade, Zoom } from 'react-awesome-reveal';
 function SobreNos() {
@@ -117,7 +117,6 @@ const MainContentUs = styled.div`
   height: 100%;
   display: flex;
   padding: 5%;
-  backdrop-filter: blur(10px);
   color:#FFFFFF;
   @media (max-width: 1200px) {
     height: auto;
