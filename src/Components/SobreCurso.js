@@ -238,7 +238,6 @@ const MainContentCurso = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  backdrop-filter: blur(10px);
   padding: 5%;
   @media (max-width: 1200px) {
     height: auto;

@@ -98,10 +98,12 @@ function Admin() {
           <PaymentsWrapper>
             {paymentsArrState.map(payment => (
               <PaymentCard key={payment.id} status={payment.status}>
-                <h2>{payment.pagador.nome}</h2>
-                <p>Valor: R$ {payment.value}</p>
-                <p>Data de Emissão: {payment.dataEmissao ? formatDate(payment.dataEmissao) : 'N/A'}</p>
+                <h2 style={{fontSize:'20px'}}>{payment.pagador.nome}</h2>
                 <p>Status: {payment.paymentStatus === "PENDING" ? 'Pendente' : 'Pago'}</p>
+                <p style={{fontSize:'15px'}}>Valor: R$ {payment.value}</p>
+                <p style={{fontSize:'15px'}}>Data de Emissão: {payment.dataEmissao ? formatDate(payment.dataEmissao) : 'N/A'}</p>
+                <p style={{fontSize:'15px'}}>Email: {payment.pagador.email}</p>
+                <p style={{fontSize:'15px'}}>Telefone: {payment.pagador.phone}</p>
               </PaymentCard>
             ))}
           </PaymentsWrapper>
@@ -123,7 +125,7 @@ const Container = styled.div`
     font-size: 3vh;
   }
   h1 {
-    color: #FFFFFF;
+    color: #4bc6b4;
   }
 `;
 
@@ -131,7 +133,6 @@ const MainContentUs = styled.div`
   width: 100%;
   min-height: 100vh;
   display: flex;
-  backdrop-filter: blur(10px);
   padding: 5%;
   @media (max-width: 768px) {
     padding: 2%;
@@ -142,6 +143,7 @@ const CenterContent = styled.div`
   width: 100%;
   height: auto;
   display: flex;
+  backdrop-filter: blur(5px);
   flex-direction: column;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -244,7 +246,6 @@ const PaymentCard = styled.div`
   border-radius: 10px;
   padding: 15px;
   transition: all 0.3s ease;
-
   &:hover {
     transform: scale(1.02);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
