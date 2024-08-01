@@ -33,14 +33,14 @@ function SobreNos() {
             <AnimatedImage src={logo} width="390" height="100" alt="Logo" fadeIn={fadeIn} />
           </Left>
           <Right className="fadeInOnScroll"  fadeIn={fadeIn}>
-            <h1><span style={{ color: '#4bc6b4' }}>Nosso objetivo</span></h1>
+            <h1><span style={{ color: '#3E9E90' }}>Nosso objetivo</span></h1>
             <p>
-              Nosso objetivo é <span style={{ color: '#4bc6b4' }}>trazer segurança para o médico no manejo da via aérea. </span>   
+              Nosso objetivo é <span style={{ color: '#3E9E90' }}>trazer segurança para o médico no manejo da via aérea. </span>   
               É importante ter em mente que a laringoscopia é apenas uma parte do grande cenário que permeia o manejo da via aérea do paciente crítico. 
                
             </p>
             <p>
-            Existem pré-requisitos <span style={{ color: '#4bc6b4' }}> fundamentais e necessários </span>  antes da  técnica de intubação que precisam ser dominados para se ter uma via área segura e são sobre esses pilares que o SIMVA se fundamenta, 
+            Existem pré-requisitos <span style={{ color: '#3E9E90' }}> fundamentais e necessários </span>  antes da  técnica de intubação que precisam ser dominados para se ter uma via área segura e são sobre esses pilares que o SIMVA se fundamenta, 
               propiciando diretrizes bem estruturadas para o manejo e segurança no cuidado do seu paciente.
             </p>
           </Right>
@@ -82,6 +82,7 @@ const Right = styled.div`
   }
   p{
     font-size: 19px;
+    color: #1D4D45
   }
   @media (max-width: 1200px) {
     width: 100%;

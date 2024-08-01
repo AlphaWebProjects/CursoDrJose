@@ -227,7 +227,7 @@ const Left = styled.div`
   p {
     font-size: 25px;
     font-weight: 500;
-    color:#158A7A;
+    color:#1D4D45;
   }
   h1{
     font-size: 40px;

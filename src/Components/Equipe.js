@@ -51,7 +51,7 @@ function Equipe() {
     margin-top: -2px;
     background-image: url(${background});
   background-size: cover;
-  color:#FFFFFF;
+  color:#3E9E90;
   background-position: center;
     @media (max-width: 1200px) {
      height: auto;
@@ -94,8 +94,10 @@ const Members= styled.div`
     align-items: center;
     div{
       width: 100%;
-      border-top: 1px solid black;
-      padding: 9vh 0;
+      border-top: 1px solid #3E9E90;
+      border-bottom: 1px solid #3E9E90;
+      padding: 4vh 0 0vh 0;
+      margin-bottom: 7vh;
     }
     img{
       height: 60%;
@@ -123,7 +125,7 @@ const CenterContent = styled.div`
     justify-content:center;
     padding:5%;
     h1 {
-    color: #4bc6b4;
+    color: #3E9E90;
     font-size: 40px;
     padding: 12px;
     border-radius: 12px;
