@@ -198,6 +198,7 @@ function Depoimentos() {
     background-size: cover;
     color:#FFFFFF;
     background-position: center;
+    color: #3E9E90;
     @media (max-width: 1200px) {
   }
 `;
@@ -274,7 +275,7 @@ const CenterContent = styled.div`
     justify-content:center;
     padding:5%;
     h1 {
-    color: #4bc6b4;
+    color: #3E9E90;
     font-size: 40px;
     padding: 12px;
     border-radius: 12px;

@@ -89,6 +89,7 @@ const LeftInfos = styled.div`
   flex-direction: column;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transition: opacity 2s ease-in-out;
+  color: #3E9E90;
   ul{
     padding: 4vh 5vh;
     border: 3px solid #4bc6b4;
@@ -106,7 +107,9 @@ const LeftInfos = styled.div`
   }
   }
   ul::-webkit-scrollbar {
-    width: 8px; /* Largura da barra de rolagem para navegadores baseados em WebKit */
+    width: 8px;
+    display: none;
+    background-color: #3E9E90;;
   }
 
   ul::-webkit-scrollbar-thumb {
@@ -140,6 +143,7 @@ const LeftInfos = styled.div`
     border-right: 3.5px solid white;
     padding: 1.5vh 3vh;
     border-radius: 10px;
+    border-color: #3E9E90;
   }
   @media (max-width: 1200px) {
     height: auto;
@@ -183,10 +187,11 @@ const RightInfos = styled.div`
     align-items: center;
     width: 10vw;
     padding: 3vh;
-    box-shadow: #4bc6b4 0px 5px 15px;
+    box-shadow: #3E9E90 0px 5px 15px;
     border-radius: 15px;
     margin-right: 4vh;
     transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    color: #3E9E90;
     &:hover {
     transform: scale(1.1);
     cursor: pointer;
@@ -254,11 +259,11 @@ const CenterContent = styled.div`
   border-radius: 20px;
   padding: 5%;
   h1 {
-    color: #4bc6b4;
+    color: #3E9E90;
     font-size: 40px;
     padding: 12px;
     border-radius: 12px;
-    border-bottom: 3px solid #4bc6b4;
+    border-bottom: 3px solid #3E9E90;
   }
   p {
     width: 80%;

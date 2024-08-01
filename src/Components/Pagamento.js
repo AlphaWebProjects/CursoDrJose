@@ -40,7 +40,7 @@ function Pagamento() {
       <MainContentCurso id="mainContentCurso">
         <CenterContent>
           <h1>Sobre a nossa oferta</h1>
-          <h2 style={{ color:'#4bc6b4'}}>Data do curso: 25/06/2024</h2>
+          <h2 style={{ color:'#3E9E90'}}>Data do curso: 25/06/2024</h2>
           <InfoContainer>
             <LeftInfos isVisible={isVisible}>
               <ul>
@@ -75,6 +75,7 @@ const InfoContainer = styled.div`
   height: 100%;
   justify-content: space-between;
   padding-top: 1vh;
+  color: #3E9E90;
   @media (max-width: 1200px) {
     height: auto;
     flex-direction: column;

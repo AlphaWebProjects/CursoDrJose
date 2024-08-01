@@ -71,7 +71,7 @@ const Container = styled.footer`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  color: #FFFFFF;
+  color: #3E9E90;
   row-gap: 4vh;
   @media (max-width: 850px) {
     padding: 2vh 0vw;
@@ -98,7 +98,7 @@ const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #FFFFFF;
+  border-bottom: 2px solid #3E9E90;
   > h3 {
     font-size: 24px;
   }
