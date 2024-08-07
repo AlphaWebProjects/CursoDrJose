@@ -56,6 +56,8 @@ export default function Thanks() {
         downloadAutomatically(paymentData.pdfBoleto)
     }, [])
 
+    //DADOS DUMMY EM TODO O PROJETO
+
     return (
         <Container>
             <TopBackground/>
