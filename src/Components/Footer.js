@@ -40,9 +40,9 @@ export default function Footer(){
 
         <TextColumn>
           <h4>{"Contato"}</h4>
-          <h5>{"Email: email@email.com"}</h5>
+          <h5>{"Email: simvabr011@gmail.com"}</h5>
           <h5>{"Endereço: Av. Prof. Lúcio Martins Rodrigues, 445 - Cidade Universitária Butantã, São Paulo - SP, 05508-020, sala 12 do prédio Prédio da Faculdade de Medicina da USP (FMUSP)"}</h5>
-          <h5>{"Celular: (11) 99999-9999"}</h5>
+          <h5>{"Celular: (11) 98765-4321"}</h5>
         </TextColumn>
 
       </SubContainer>
@@ -59,6 +59,8 @@ export default function Footer(){
 const MainContent = styled.div`
   width:100%;
   padding-left: 5vw;
+  align-items: center !important;
+  justify-content: center !important;
 `
 
 const Container = styled.footer`
@@ -95,6 +97,8 @@ const Container = styled.footer`
 const TitleContainer = styled.div`
   width: 80%;
   padding: 1.7vh 0;
+  margin-left: 14vh;
+  margin-bottom: 3vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -107,6 +111,8 @@ const TitleContainer = styled.div`
     cursor: pointer;
   }
   @media (max-width: 850px) {
+    margin-left: 28px !important;
+    margin-bottom: 13px !important;
     > h3 {
       font-size: 20px;
     }

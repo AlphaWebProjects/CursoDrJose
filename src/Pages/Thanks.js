@@ -62,7 +62,7 @@ export default function Thanks() {
             <CourseContainer>
                 <h1>{"Agradecemos a confiança"}</h1>
                 <p>{"Seu boleto foi gerado e deve começará o download automaticamente."}</p>
-                <p>{"Ao realizar o pagamento entre em contato com (35) 99999-9999."}</p>
+                <p>{"Ao realizar o pagamento entre em contato com (11) 98765-4321."}</p>
                 <DownloadButton onClick={() => downloadManually(paymentData.pdfBoleto)}>{"Caso contrario, clique aqui para baixar"}</DownloadButton>
                 <HomeButton onClick={() => navigate("/")}>{"Voltar para Home"}</HomeButton>
             </CourseContainer>

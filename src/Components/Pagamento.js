@@ -40,7 +40,7 @@ function Pagamento() {
       <MainContentCurso id="mainContentCurso">
         <CenterContent>
           <h1>Sobre a nossa oferta</h1>
-          <h2 style={{ color:'#3E9E90'}}>Data do curso: 25/06/2024</h2>
+          <h2 style={{ color:'#3E9E90'}}>Data do curso: de 15/08 à 29/08</h2>
           <InfoContainer>
             <LeftInfos isVisible={isVisible}>
               <ul>

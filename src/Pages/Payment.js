@@ -39,7 +39,7 @@ export default function Payment() {
             <TopBackground />
             <CourseContainer>
                 <h1>{"SIMVA"}</h1>
-                <p>{"Uberlândia - 21/05 - 19h"}</p>
+                <p>{"São Paulo - 15/08 à 29/08"}</p>
                 <SubDataContainer>
                     <div>
                         <h3>{"Pagamento"}</h3>

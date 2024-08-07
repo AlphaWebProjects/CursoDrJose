@@ -56,6 +56,8 @@ export default SobreNos;
 const AnimatedImage = styled.img`
   opacity: ${({ fadeIn }) => (fadeIn ? 1 : 0)};
   transition: opacity 2s ease-in-out;
+  width: 55.5vh;
+  height: 16.5vh; 
   @media (max-width: 1200px) {
     height: auto;
     width: 35vh;
@@ -81,7 +83,7 @@ const Right = styled.div`
     border-bottom: 3px solid #4bc6b4;
   }
   p{
-    font-size: 19px;
+    font-size: 21.5px;
     color: #1D4D45
   }
   @media (max-width: 1200px) {
