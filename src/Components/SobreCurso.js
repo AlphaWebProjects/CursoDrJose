@@ -89,6 +89,7 @@ const LeftInfos = styled.div`
   flex-direction: column;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transition: opacity 2s ease-in-out;
+  backdrop-filter: blur(10px);
   color: #3E9E90;
   ul{
     padding: 4vh 5vh;
@@ -186,7 +187,7 @@ const RightInfos = styled.div`
     flex-direction: column;
     align-items: center;
     width: 10vw;
-    padding: 3vh;
+    padding: 2vh;
     box-shadow: #3E9E90 0px 5px 15px;
     border-radius: 15px;
     margin-right: 4vh;

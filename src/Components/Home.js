@@ -55,22 +55,7 @@ function Home() {
 
   return (
     <Container>
-      {userData.token ? (
-        <LogOutContainer>
-            <AdminButton>
-              <Link to="/admin">
-                <StyledLoginButton>Admin</StyledLoginButton>
-              </Link>
-            </AdminButton>
-          <span>Olá, { userData.name.split(" ")[0] }</span>
-            <StyledLogoutButton onClick={handleLogout}>Sair</StyledLogoutButton>
 
-        </LogOutContainer>
-    ) : (
-        <Link to="/auth">
-            <StyledLoginButton>Login</StyledLoginButton>
-        </Link>
-    )}
       <MainContentHome>
         <CenterContent>
           {width > 1200?

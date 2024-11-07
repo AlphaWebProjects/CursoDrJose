@@ -5,18 +5,14 @@ import doctor2 from '../img/FotosAlunos1.jpeg';
 import UserContext from '../context/UserContext';
 import useNavigateAndMoveUp from '../hooks/useNavigateAndMoveUp';
 import background from '../img/Background1.png'
+import { useNavigate } from 'react-router-dom';
 function Pagamento() {
   const [isVisible, setIsVisible] = useState(false);
   const { userData } = useContext(UserContext);
-  const navigate = useNavigateAndMoveUp()
+  const navigate = useNavigate()
   
   function handlePayment(){
-    if(!userData?.token){
-      navigate({locate: "auth"})
-      return
-    }
-    navigate({locate: "payment"})
-    return
+      window.location.href = "https://payment.ticto.app/O3D975631";
   }
 
   useEffect(() => {
